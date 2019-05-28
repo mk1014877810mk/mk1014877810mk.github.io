@@ -1,0 +1,953 @@
+<!--
+	作者：Sariay
+	时间：2018-09-25
+	描述：There may be a bug, but don't worry, QiLing(器灵) says that it can work normally!
+-->
+<!DOCTYPE html>
+<html class="html-loading">
+		
+
+<head><meta name="generator" content="Hexo 3.8.0">
+	<meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+  <title>
+    
+      移动端ios升级到11及以上时，手机弹框输入光标出现错位问题 | Mr. Meng&#39;s blog
+    
+  </title>
+  <meta name="author" content="Mr. Meng">
+  <meta name="keywords" content>
+  <meta name="description" content>
+	<!-- favicon -->
+  <link rel="shortcut icon" href="/img/favicon.ico">
+
+  <!-- css -->
+  <link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="/css/Annie.css">
+  
+  <!-- jquery -->
+	<script src="/js/jquery.min.js"></script>
+
+  <!-- leancloud -->
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+<script src="/js/leancloud.js"></script>
+</head>
+	<body>
+		<!-- Preloader -->
+
+	<div id="preloader">
+		<div class="pre-container">
+			
+				<div class="spinner">
+					<div class="double-bounce1"></div>
+					<div class="double-bounce2"></div>
+				</div>
+						
+		</div>
+	</div>
+
+
+<!-- header -->
+<header class="fixbackground" data-img-mode="normal" data-normal-src="https://source.unsplash.com/collection/954550/1920x1080" data-random-max="110" data-random-src="https://sariay.github.io/Random-img/">
+	<div class="mask">
+		<!-- Logo and navigation -->
+		<div class="h-header">
+			<div id="logo">
+				<a href="/">
+						
+						<img src="/img/logo.png" alt="Logo">
+					
+				</a>
+			</div>
+			
+			<div id="navigation-show">
+				<ul>
+	
+		<li class="menu-home">
+			<a href="/" class="menu-item-home">主页</a>
+		</li>
+	
+		<li class="menu-archive">
+			<a href="/archives" class="menu-item-archive">归档</a>
+		</li>
+	
+		<li class="menu-categories">
+			<a href="/categories" class="menu-item-categories">分类</a>
+		</li>
+	
+		<li class="menu-tags">
+			<a href="/tags" class="menu-item-tags">标签</a>
+		</li>
+	
+		<li class="menu-about">
+			<a href="/about" class="menu-item-about">关于</a>
+		</li>
+	
+
+	
+</ul>
+			</div>				
+		</div>
+
+		<!-- motto -->
+		<div class="h-body">	
+			
+				<p class="motto"></p>
+			
+		</div>
+		
+		<!-- others: such as time... -->			
+		<div class="h-footer">
+			<a href="javascript:;" id="read-more"><i class="fa fa-angle-double-down" aria-hidden="true"></i>
+			</a>
+
+			
+				<!-- 
+	This is only a demo, please go to "https://time.is" to set your city time! 
+-->
+<style type="text/css">
+	.header-date {
+		font-size: 1.6rem;
+		color: #fff;
+		position: absolute;
+		bottom: 5px;
+		right: 1rem;
+		writing-mode: tb-rl;
+	}	
+	
+	.header-date a {
+		border-bottom: none;
+	}
+
+	@media only screen and (max-width: 768 ) {
+		.header-date {
+			font-size: 1rem;
+		}			
+	}
+</style>
+<div class="header-date">
+	<a href="https://time.is/Beijing" id="time_is_link" rel="nofollow"></a>
+	<span id="Beijing_z43d"></span>
+</div>
+<script src="//widget.time.is/zh.js"></script>
+<script>
+	time_is_widget.init({
+		Beijing_z43d:{
+			template:"DATE", 
+			date_format:"year年 monthname dnum日"
+		}
+	});
+</script>
+			
+		</div>
+	</div>
+</header>
+
+<div id="navigation-hide">
+	<!-- Progress bar -->
+	<div id="progress-bar"></div>
+
+	<!-- Progress percent -->
+	<div id="progress-percentage"><h1>0.0%</h1></div>
+
+	<div class="toc-switch"><span class="switch-button">目录</span></div>
+
+	<!-- Page title -->
+	<p>
+		
+			当前文章&nbsp;:&nbsp;《移动端ios升级到11及以上时，手机弹框输入光标出现错位问题》
+		
+	</p>
+
+	<!-- Nav trigger for navigation-H-->
+	<a class="nav-trigger"><span></span></a>
+</div>
+
+<!-- Navigation in div(id="navigation-H") -->
+<nav class="nav-container" id="cd-nav">
+	<div class="nav-header">
+		<h3>Navigation</h3>
+		<a href="javascript:;" class="nav-close"></a>
+	</div>
+	<div class="nav-body">
+		<ul>
+	
+		<li class="menu-home">
+			<a href="/" class="menu-item-home">主页</a>
+		</li>
+	
+		<li class="menu-archive">
+			<a href="/archives" class="menu-item-archive">归档</a>
+		</li>
+	
+		<li class="menu-categories">
+			<a href="/categories" class="menu-item-categories">分类</a>
+		</li>
+	
+		<li class="menu-tags">
+			<a href="/tags" class="menu-item-tags">标签</a>
+		</li>
+	
+		<li class="menu-about">
+			<a href="/about" class="menu-item-about">关于</a>
+		</li>
+	
+
+	
+</ul>
+	</div>
+	<div class="nav-footer">
+		<ul>
+	
+		<li>
+			<a href="http://github.com/" target="_blank">
+				<i class="fa fa-github"></i>
+			</a>
+		</li>
+	
+		<li>
+			<a href="http://github.com/" target="_blank">
+				<i class="fa fa-weibo"></i>
+			</a>
+		</li>
+	
+		<li>
+			<a href="http://github.com/" target="_blank">
+				<i class="fa fa-pinterest"></i>
+			</a>
+		</li>
+	
+		<li>
+			<a href="http://github.com/" target="_blank">
+				<i class="fa fa-instagram"></i>
+			</a>
+		</li>
+	
+		<li>
+			<a href="http://github.com/" target="_blank">
+				<i class="fa fa-twitter"></i>
+			</a>
+		</li>
+	
+		<li>
+			<a href="/atom.xml" target="_blank">
+				<i class="fa fa-rss"></i>
+			</a>
+		</li>
+			
+</ul>
+
+	</div>
+</nav>
+			
+		<!--main-->
+		<main>
+			<!--
+	时间：2018-11-17
+	描述：
+		插件名称：katelog.min.js
+		插件作者：KELEN
+		插件来源: https://github.com/KELEN/katelog
+-->
+
+	
+		<div class="layout-toc">
+			<div id="layout-toc">
+				<div class="k-catelog-list" id="catelog-list" data-title="文章目录"></div>
+			</div>
+		</div>
+
+		
+		<script src="/plugin/toc/katelog.min.js"></script>
+
+		
+	 
+
+<div class="layout-post">
+	<div id="layout-post">
+	<div class="article-title">
+		<i class="fa fa-paper-plane-o" aria-hidden="true"></i>
+		
+	<a href="/2017/11/17/手机弹框光标问题/" itemprop="url">
+		移动端ios升级到11及以上时，手机弹框输入光标出现错位问题
+	</a>
+
+	</div>
+
+	<div class="article-meta">
+		<span>
+			<i class="fa fa-calendar"></i>
+			
+
+
+	发布于
+
+	<a href="/2017/11/17/手机弹框光标问题/" itemprop="url">
+		<time datetime="2017-11-17T12:16:19.000Z" itemprop="datePublished">
+	  		2017-11-17
+	  </time>
+	</a>
+	&nbsp;
+
+
+
+
+
+			
+
+
+
+
+	更新于
+
+	<a href="/2017/11/17/手机弹框光标问题/" itemprop="url">
+		<time datetime="2017-11-17T12:16:19.000Z" itemprop="dateUpdated">
+	  		2019-05-27
+	  </time>
+	</a> 
+
+
+
+		</span>
+		<span>
+			<i class="fa fa-tags"></i>
+			
+	
+		<a href="/tags/移动端ios升级到11及以上时手机弹框输入光标出现错位问题/" class=" ">
+			移动端ios升级到11及以上时手机弹框输入光标出现错位问题
+		</a>
+	
+		
+		</span>
+		
+		
+
+
+
+	</div>
+
+	<div class="article-content" id="article-content">
+		<p><img src="/content-images/phonePic.png" style="width:300px;"></p>
+<h3 id="引起原因："><a href="#引起原因：" class="headerlink" title="引起原因："></a>引起原因：</h3><p>  弹框的定位采取position：fixed，而ios（safari）对定位属性position：fixed的解析不一致导致。</p>
+<h3 id="解决方案："><a href="#解决方案：" class="headerlink" title="解决方案："></a>解决方案：</h3><h5 id="方案一："><a href="#方案一：" class="headerlink" title="方案一："></a>方案一：</h5><p>   一开始上网找解决方案，找到如下处理方式。但存在当页面出现滚动条时，弹框弹出后，页面回滚至顶部。在不改变原有弹框代码的情况下，有效地解决光标错位问题，但严重影响用户使用，只能忍痛舍去~<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//弹框弹出后执行如下代码</span></span><br><span class="line">  $(<span class="string">'body'</span>).css(&#123;<span class="string">'position'</span>: <span class="string">'fixed'</span>, <span class="string">'width'</span>: <span class="string">'100%'</span>&#125;);</span><br><span class="line"><span class="comment">//弹框关闭后执行如下代码</span></span><br><span class="line">  $(<span class="string">'body'</span>).css(&#123;<span class="string">'position'</span>: <span class="string">'relative'</span>&#125;);</span><br></pre></td></tr></table></figure></p>
+<h5 id="方案二"><a href="#方案二" class="headerlink" title="方案二"></a>方案二</h5><p>  尝试多种方式后，只能从源头解决，不使用position:fixed。重写弹框定位，但问题是，这个弹框涉及所有页面，后台开发用这弹框做了很多操作，弹框中间内容由于可以自定义，所以是牵一发而动全身，不敢轻易改，就连上传图片的进度条显示都是用这个弹框做的（就是为了套用弹框的一个遮罩效果）</p>
+<p>  解决思路：</p>
+<p>  1、弹框（#pop ）采用position:absolute定位，遮罩（#shadow）采用fixed定位（原先采用absolute定位的，由于有些页面内容是根据用户滚动进行动态加载，导致原先的遮罩不能完全遮住所有内容，当然也可以对某些元素定高进行加载内容，避免此类问题出现，但这次的修改要考虑通用性，后台开发有时候根本不管你这些，关键目前系统很多页面都已经出现这问题了）</p>
+<p>  2、弹框采用absolute定位后，关键是top值的确定<br>  <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> initTopH = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> tempH = $(<span class="string">'#pop'</span>).height(); <span class="comment">//弹框高度</span></span><br><span class="line">  <span class="keyword">var</span> screenH = $(<span class="built_in">window</span>).height();<span class="comment">//手机屏幕高度</span></span><br><span class="line">  <span class="keyword">var</span> scrollH = $(<span class="built_in">document</span>).scrollTop();<span class="comment">//文档内容滚动高度</span></span><br><span class="line">  <span class="keyword">var</span> topH = scrollH + (screenH - tempH) / <span class="number">2</span>;<span class="comment">//top值高度</span></span><br><span class="line">  <span class="keyword">return</span> topH;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+<p>  3、以为这样就可以解决问题，但新的问题出现，当输入框获得焦点时，移动端会弹出键盘挤压弹框上移，关闭键盘后，弹框不会恢复原位，所以需要对弹框失焦后在进行重新定位执行initTopH()<br>  <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">"#pop input,textarea"</span>).off(<span class="string">'blur'</span>).on(<span class="string">'blur'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="comment">//这里只是对input和textarea处理</span></span><br><span class="line">  $(<span class="string">'#pop'</span>).css(&#123;<span class="string">'top'</span>:initTopH()&#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<p>  4、要成功解决一个问题，就会引发更多的问题需要解决，成功操作1-3的操作后，当弹框弹出后，若页面存在滚动条，此时滚动页面，弹框是不会跟着页面下移的，因为top是写死的。想当然是监听页面滚动（scroll）事件，实时改变top值，但问题是效果太差，抖动、弹跳太明显，qa肯定会提bug的~</p>
+<p>  另一途径就是弹出弹框后禁止页面滚动，以为设置body页面overflow：hidden就好了，然而pc端模拟测试有效果，真实环境仍然不起作用。以为没有给body定高，就都设置html，body标签的高度为100%；但然并卵，反而出现  $(document).scrollTop() 取值有问题（用$(‘body’).scrollTop()替换仍没用，关键pc端模拟都有效果，一到真实环境就出问题），影响前面弹框定位。烦~烦~烦~，反复测试，都没有实质性的进展~</p>
+<p>  前面一直纠结于给body定高，但想想还是不妥，很多页面开发者给各自页面都会重新定义样式，我这么暴力地修改，担心影响其他页面布局，所以果断放弃这条路子~</p>
+<p>  如何在不影响大局的情况下重新布局呢？突然想到了阻止默认事件  e.preventDefault() ，但是新问题又来了，使用这个可以很好的解决页面滚动问题，但也会阻止弹框里内容滚动。纠结ing~</p>
+<p>  5、左思右想，采取整体除去局部的思想来监听touchmove事件，方法如下，当触摸对象不是弹框时，阻止默认事件，当触摸对象是弹框时，虽然滚动弹框里的内容出现底部页面也滚动的情况，但触摸结束以后恢复原始的滚动高度，经测试效果还不错，也不觉得突兀~<br>  <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">'#pop'</span>).show();</span><br><span class="line"><span class="keyword">var</span> sh;<span class="comment">//记录初始滚动高度</span></span><br><span class="line">$(<span class="built_in">document</span>).off(<span class="string">'touchstart'</span>).on(<span class="string">'touchstart'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">e</span>) </span>&#123;</span><br><span class="line">    sh = $(<span class="built_in">document</span>).scrollTop();</span><br><span class="line">&#125;);</span><br><span class="line">$(<span class="built_in">document</span>).off(<span class="string">'touchmove'</span>).on(<span class="string">'touchmove'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">e</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (e.target.id === <span class="string">"shadow"</span>) &#123;<span class="comment">//除去#pop</span></span><br><span class="line">        e.preventDefault();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br><span class="line">$(<span class="built_in">document</span>).off(<span class="string">'touchend'</span>).on(<span class="string">'touchend'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">e</span>) </span>&#123;</span><br><span class="line">    $(<span class="built_in">document</span>).scrollTop(sh);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<h4 id="总结："><a href="#总结：" class="headerlink" title="总结："></a>总结：</h4><p>  虽然可能会有更好的解决方案，但这是我目前觉得比较好的处理方式，每个人所处的开发环境不一样，考虑的东西也不同，所以此方法并不一定都适应，可以借鉴参考。一天都在解决这个bug问题，找资料，尝试各种方法，虽然问题已解决，但还是想好好理顺下思路，故写下这篇随笔~啦~啦~啦~啦，下班啦~</p>
+	
+	</div>
+	
+	<div id="current-post-cover" data-scr="/img/categories-bgi/js.jpg"></div>
+
+	<!-- relate post, comment...-->
+	<div class="investment-container">
+		<div class="investment-header">
+			<div class="investment-title-1">
+				<div class="on">相关文章</div>
+				<div>评论</div>
+				<div>分享</div>
+			</div>
+			<div class="investment-title-2">	            
+				
+	<span>
+		<a href="javascript: window.scrollTo(0, 0);">返回顶部</a>
+		
+			<a href="/2017/12/01/word-break属性和css换行显示/" title="word-break属性和css换行显示" rel="prev">
+				&laquo;上一篇
+			</a>
+		
+		
+			<a href="/2017/05/06/bootstrap的tab栏中渲染echats图表切换tab时echats不显示问题/" title="关于在bootstrap的tab栏中渲染echats图表，切换tab时echats不显示问题" rel="next">
+				下一篇&raquo;
+			</a>
+			
+	</span>
+
+
+      		
+			</div>	
+		</div>
+		
+		<div class="investment-content">
+			<div class="investment-content-list">
+				
+
+<div class="relate-post">
+	
+		<ul>
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2019/03/12/完美解决ios10及以上Safari无法禁止缩放的问题/" title="完美解决ios10及以上Safari无法禁止缩放的问题">
+								完美解决ios10及以上Safari无法禁止缩放的问题			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								三月 12日, 2019				
+							</p>
+							<p class="relate-post-content">
+								移动端web缩放有两种：
+1.双击缩放；
+2.双指手势缩放。
+在iOS 10以前，iOS和Android都可以通过一行meta标签来禁止页面缩放
+1&lt;meta content="width=device-width, initi...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2019/03/12/完美解决ios10及以上Safari无法禁止缩放的问题/" title="完美解决ios10及以上Safari无法禁止缩放的问题">				
+								
+								<img class="lazy" src="/img/placeholder.jpg" data-src="/img/categories-bgi/js.jpg" alt="完美解决ios10及以上Safari无法禁止缩放的问题">
+							</a>
+						</div>
+					</li>											
+			
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2018/08/22/less使用方法总结/" title="less使用方法总结">
+								less使用方法总结			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								八月 22日, 2018				
+							</p>
+							<p class="relate-post-content">
+								1 变量我们常常在 CSS 中 看到同一个值重复多次，这样难易于代码维护。理想状态，应是下面这样：1234const bgColor="skyblue";$(".post-content").css("background-color...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2018/08/22/less使用方法总结/" title="less使用方法总结">				
+								
+								<img class="lazy" src="/img/placeholder.jpg" data-src="/img/categories-bgi/less.jpg" alt="less使用方法总结">
+							</a>
+						</div>
+					</li>											
+			
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2018/05/20/js文字排序的方法/" title="js文字排序的方法">
+								js文字排序的方法			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								五月 20日, 2018				
+							</p>
+							<p class="relate-post-content">
+								拼音排序：123456789var arr = [&#123; a: 1, b: "我" &#125;, &#123; a: 1, b: "是" &#125;, &#123; a: 1, b: "帅" &#125;, &#123; a...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2018/05/20/js文字排序的方法/" title="js文字排序的方法">				
+								
+								<img class="lazy" src="/img/placeholder.jpg" data-src="/img/categories-bgi/js.jpg" alt="js文字排序的方法">
+							</a>
+						</div>
+					</li>											
+			
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2017/05/06/bootstrap的tab栏中渲染echats图表切换tab时echats不显示问题/" title="关于在bootstrap的tab栏中渲染echats图表，切换tab时echats不显示问题">
+								关于在bootstrap的tab栏中渲染echats图表，切换tab时echats不显示问题			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								五月 6日, 2017				
+							</p>
+							<p class="relate-post-content">
+								在开发过程中遇到这样个问题：
+利用bootstrap中的tab栏，每当点击tab栏的导航时，echats仅仅只渲染第一个tab的内容，切换tab时，echats图表不显示。html代码为：12345678910111213141516...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2017/05/06/bootstrap的tab栏中渲染echats图表切换tab时echats不显示问题/" title="关于在bootstrap的tab栏中渲染echats图表，切换tab时echats不显示问题">				
+								
+								<img class="lazy" src="/img/placeholder.jpg" data-src="/img/categories-bgi/js.jpg" alt="关于在bootstrap的tab栏中渲染echats图表，切换tab时echats不显示问题">
+							</a>
+						</div>
+					</li>											
+			
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2017/03/24/移动端点击事件全攻略/" title="移动端点击事件全攻略">
+								移动端点击事件全攻略			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								三月 24日, 2017				
+							</p>
+							<p class="relate-post-content">
+								接触过移动端开发的前端可能都会面临点击事件的第一个问题：click事件的300ms延迟响应。不能立即响应给体验造成了很大的困扰，因此解决这个问题就成为了必然。
+这个问题的解决方案就是：zepto.js的tap事件。tap事件可以理解为...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2017/03/24/移动端点击事件全攻略/" title="移动端点击事件全攻略">				
+								
+								<img class="lazy" src="/img/placeholder.jpg" data-src="/img/categories-bgi/js.jpg" alt="移动端点击事件全攻略">
+							</a>
+						</div>
+					</li>											
+			
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2019/05/20/vue-pdf的使用方法及解决在线打印预览乱码/" title="vue-pdf的使用方法及解决在线打印预览乱码">
+								vue-pdf的使用方法及解决在线打印预览乱码			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								五月 20日, 2019				
+							</p>
+							<p class="relate-post-content">
+								最近在用vue做项目的时候，页面中需要展示后端返回的PDF文件，于是便用到了vue-pdf，其使用方法为 ：1npm install --save vue-pdf
+官网
+不多说了，直接上代码：
+12345678910111213141...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2019/05/20/vue-pdf的使用方法及解决在线打印预览乱码/" title="vue-pdf的使用方法及解决在线打印预览乱码">				
+								
+								<img class="lazy" src="/img/placeholder.jpg" data-src="/img/categories-bgi/vue.jpg" alt="vue-pdf的使用方法及解决在线打印预览乱码">
+							</a>
+						</div>
+					</li>											
+			
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2019/05/06/nodejs脚手架express-generator/" title="nodejs脚手架express-generator">
+								nodejs脚手架express-generator			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								五月 6日, 2019				
+							</p>
+							<p class="relate-post-content">
+								1.安装生成器1npm install express-generator -g
+2. 创建名称为APP的应用：1express my-project
+3.安装依赖包123cd my-projectnpm install
+4、启动应用...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2019/05/06/nodejs脚手架express-generator/" title="nodejs脚手架express-generator">				
+								
+								<img class="lazy" src="/img/placeholder.jpg" data-src="/img/categories-bgi/node.jpg" alt="nodejs脚手架express-generator">
+							</a>
+						</div>
+					</li>											
+			
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2019/04/20/ts中类的继承/" title="ts中类的继承">
+								ts中类的继承			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								四月 20日, 2019				
+							</p>
+							<p class="relate-post-content">
+								定义类1234567891011class Person &#123;    name: string;   //属性    constructor(_name: string) &#123;        this.name = _...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2019/04/20/ts中类的继承/" title="ts中类的继承">				
+								
+								<img class="lazy" src="/img/placeholder.jpg" data-src="/img/categories-bgi/ts.jpg" alt="ts中类的继承">
+							</a>
+						</div>
+					</li>											
+			
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2019/04/18/vue-cli3+typescript+router/" title="vue-cli3+typescript+router">
+								vue-cli3+typescript+router			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								四月 18日, 2019				
+							</p>
+							<p class="relate-post-content">
+								vue基于类的写法，和基于对象的写法并不一致。使用vue-cli3创建的项目，src目录下的文件结构并没有多大区别，store、router、app、view、components、aeests该有的还是有的。但是，多了一个东西：vu...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2019/04/18/vue-cli3+typescript+router/" title="vue-cli3+typescript+router">				
+								
+								<img class="lazy" src="/img/placeholder.jpg" data-src="/img/categories-bgi/vue.jpg" alt="vue-cli3+typescript+router">
+							</a>
+						</div>
+					</li>											
+			
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2019/03/08/微信小程序video组件出现无法播放或卡顿/" title="微信小程序video组件出现无法播放或卡顿">
+								微信小程序video组件出现无法播放或卡顿			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								三月 8日, 2019				
+							</p>
+							<p class="relate-post-content">
+								微信小程序使用video组件播放视频的时候，会出现卡顿或者无法播放的问题，加一个custom-cache=”true“即可解决，这个属性文档上没有，是从小程序开发社区中get到的。
+
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2019/03/08/微信小程序video组件出现无法播放或卡顿/" title="微信小程序video组件出现无法播放或卡顿">				
+								
+								<img class="lazy" src="/img/placeholder.jpg" data-src="/img/categories-bgi/wechat.jpg" alt="微信小程序video组件出现无法播放或卡顿">
+							</a>
+						</div>
+					</li>											
+			
+			
+		</ul>
+	
+</div>	
+			</div>
+			<div class="investment-content-list">
+				<div class="layout-comment">
+
+	
+
+		
+
+			<!-- I don't know !!!-->
+			<div>Please check the comment setting in config.yml of hexo-theme-Annie!</div>
+			
+		
+		
+	
+
+</div>
+			</div>
+			<div class="investment-content-list">
+				<div class="layout-share">
+	
+	
+
+		
+			
+			<!-- socialShare share -->
+			<div class="social-share"></div>
+
+<!--  css & js -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css">
+<script async src="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script>
+			
+		
+		
+	
+</div>
+
+
+			</div>
+		</div>	
+	</div>
+	</div>
+</div>
+
+
+
+	<!-- leancloud -->
+	<!--
+	时间：2018-11-27
+	描述：
+		文章访问量：visitors
+		文章喜欢量：likes	
+		文章排行榜：topNPost
+		其他得说明：
+			01-Cookie相关的函数 
+				https://blog.csdn.net/somehow1002/article/details/78511541（Author：somehow1002）
+			02-visitors相关的函数 
+				https://blog.csdn.net/u013553529/article/details/63357382（Author：爱博客大伯）
+				https://notes.doublemine.me/2015-10-21-为NexT主题添加文章阅读量统计功能.html（Author：夏末）
+			03-topNPost相关的函数
+				https://hoxis.github.io/hexo-next-read-rank.html（Author：hoxis）
+			04-likes相关的函数，
+				参考了01 & 02进行简单的设计与实现
+-->
+
+
+	
+
+
+<!-- show math formula -->
+
+
+
+	 
+	<script src="/plugin/clipboard/clipboard.js"></script>
+	<script>
+		// Copy code !
+	    function codePreprocessing() {
+	        $("#article-content .highlight").each(function() {
+
+	            $(this).wrap('<div id="post-code"></div>');
+
+	        })
+
+	        $("#article-content #post-code").each(function() {
+
+	            $(this).prepend('<nav class="copy-nav"><span><i class="code-language"></i></span></nav>');
+
+	        })
+
+	        $("#article-content .copy-nav").each(function() {
+	            var temp = $(this).next().attr('class'),
+	                language = ((temp.length > 9) && (temp != null)) ? temp.substr(10) : "none"; //why 9? Need to check language?
+
+	            $(this).find('.code-language').text(language);
+
+	            $(this).append('<span class="copy-btn"><i class="fa fa-copy" aria-hidden="true"></i></span>');
+
+	        });
+	    }
+
+		function codeCopy() {
+		    $('#article-content #post-code').each(function(i) {
+		        var codeCopyId = 'codeCopy-' + i;
+
+		        var codeNode = $(this).find('.code'),
+		            copyButton = $(this).find('.copy-btn');
+
+		        codeNode.attr('id', codeCopyId);
+		        copyButton.attr('data-clipboard-target-id', codeCopyId);
+		    })
+
+		    
+			var clipboard = new ClipboardJS('.copy-btn', {
+					target: function(trigger) {
+						return document.getElementById(trigger.getAttribute('data-clipboard-target-id'));
+					}
+		      	});
+
+			//pure js
+			function showTooltip(elem, msg) {		   
+				elem.setAttribute('aria-label', msg);
+				elem.setAttribute('class', 'copy-btn copy-status');
+				setTimeout(function() {
+					elem.setAttribute('class', 'copy-btn');
+				}, 2000);
+			}
+
+			clipboard.on('success', function(e) {
+			    e.clearSelection();
+			    console.info('Action:', e.action);		   
+			    console.info('Trigger:', e.trigger);
+			    showTooltip(e.trigger, 'Copied!');
+			    
+			});
+			clipboard.on('error', function(e) {
+			    console.error('Action:', e.action);
+			    console.error('Trigger:', e.trigger);
+			});
+		
+
+		}
+
+		if ($('.layout-post').length) {
+		    codePreprocessing();
+		    codeCopy();
+		} 
+	</script>
+
+
+
+
+
+<link rel="stylesheet" href="/plugin/fancybox/jquery.fancybox.css">
+<script src="/plugin/fancybox/jquery.fancybox.js"></script>
+
+<script type="text/javascript">
+	var titleID = $('.article-title a'),
+		imageID = $('.article-content img'),
+		videoID = $('.article-content video');
+
+	var postTitle = titleID.text() ? titleID.text() : "No post title!";
+
+	imageID.each(function() {
+		var imgPath = $(this).attr('src'),
+			imgTitle = $(this).attr('alt') ? $(this).attr('alt') : "No image description!";
+
+		//给每个匹配的<img>元素打包, 即添加父元素<a>
+		$(this).wrap('<a data-fancybox="gallery" data-caption=" 《 ' + postTitle + ' 》 ' + imgTitle + ' "  href=" ' + imgPath + ' "> </a>');
+	});
+
+	videoID.each(function() {
+		var videoPath = $(this).attr('src');
+
+		//给每个匹配的<img>元素打包, 即添加父元素<a>
+		$(this).wrap('<a data-fancybox href=" ' + videoPath + ' "> </a>');
+	});
+	//TODO：支持html5 video
+
+	if($('#layout-post').length) {
+		$('[data-fancybox="gallery"]').fancybox({
+			loop: true,
+			buttons: [
+				"zoom",
+				"share",
+				"slideShow",
+				"fullScreen",
+				//"download",
+				"thumbs",
+				"close"
+			],
+			protect: false
+		});
+	}
+</script>
+		</main>
+
+		<!--footer-->
+		<footer>
+	<div class="social">
+		<ul>
+	
+		<li>
+			<a href="http://github.com/" target="_blank">
+				<i class="fa fa-github"></i>
+			</a>
+		</li>
+	
+		<li>
+			<a href="http://github.com/" target="_blank">
+				<i class="fa fa-weibo"></i>
+			</a>
+		</li>
+	
+		<li>
+			<a href="http://github.com/" target="_blank">
+				<i class="fa fa-pinterest"></i>
+			</a>
+		</li>
+	
+		<li>
+			<a href="http://github.com/" target="_blank">
+				<i class="fa fa-instagram"></i>
+			</a>
+		</li>
+	
+		<li>
+			<a href="http://github.com/" target="_blank">
+				<i class="fa fa-twitter"></i>
+			</a>
+		</li>
+	
+		<li>
+			<a href="/atom.xml" target="_blank">
+				<i class="fa fa-rss"></i>
+			</a>
+		</li>
+			
+</ul>
+
+	</div>
+		
+	<div class="copyright">
+		<p>
+			 
+				&copy;2017 - 2019, content by Mr. Meng. All Rights Reserved.
+			
+			
+			
+
+	<!-- busuanzi -->
+	<!-- busuanzi -->
+
+		
+	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+	
+
+		<span id="busuanzi_container_page_pv">
+	  		本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+		</span>
+
+	
+
+
+
+
+		</p>
+		<p>
+			<a href="http://hexo.io/" title="Hexo" target="_blank" rel="noopener">Hexo</a> Theme <a href="https://github.com/Sariay/hexo-theme-Annie" title="Annie" target="_blank" rel="noopener">Annie</a> by Sariay.
+			<a href="javascript:zh_tran('s');" class="zh_click" id="zh_click_s">简体</a> 
+			<a href="javascript:zh_tran('t');" class="zh_click" id="zh_click_t">繁體</a>				
+		</p>
+	</div>		
+</footer>
+		
+	<!-- set '1' to show motto in all pages! -->
+
+	<script src="/plugin/motto/motto.js"></script>
+	
+	<script type="text/javascript">
+		$(".motto").html( getMingYanContent() );
+	</script>	
+
+
+
+
+
+<!-- love effect -->
+
+	<script src="/plugin/love/love.js"></script>
+
+
+<!-- back to top -->
+
+	
+	<div id="totop">
+  		<a href="javascript:;" name="TOTOP" class="fa fa-arrow-up"></a>
+	</div>
+
+
+
+
+<!-- site analysis -->
+
+
+	<!-- site-analysis -->
+	
+	
+	
+	
+	
+ 
+
+<script src="/plugin/vibrant/vibrant.js"></script>
+<script src="/plugin/chinese/chinese.js"></script>
+<script src="/plugin/imgLazyLoader/yall.min.js"></script>
+<script src="/plugin/imgResize/jquery.resizeimagetoparent.min.js"></script>
+<script src="/plugin/nicescroll/jquery.nicescroll.js"></script>
+<script src="/js/resizediv.js"></script>
+<script src="/js/main.js"></script>
+	</body>	
+</html>

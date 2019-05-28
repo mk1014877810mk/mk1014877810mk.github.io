@@ -1,0 +1,967 @@
+<!--
+	作者：Sariay
+	时间：2018-09-25
+	描述：There may be a bug, but don't worry, QiLing(器灵) says that it can work normally!
+-->
+<!DOCTYPE html>
+<html class="html-loading">
+		
+
+<head><meta name="generator" content="Hexo 3.8.0">
+	<meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+  <title>
+    
+      移动端点击事件全攻略 | Mr. Meng&#39;s blog
+    
+  </title>
+  <meta name="author" content="Mr. Meng">
+  <meta name="keywords" content>
+  <meta name="description" content>
+	<!-- favicon -->
+  <link rel="shortcut icon" href="/img/favicon.ico">
+
+  <!-- css -->
+  <link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="/css/Annie.css">
+  
+  <!-- jquery -->
+	<script src="/js/jquery.min.js"></script>
+
+  <!-- leancloud -->
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+<script src="/js/leancloud.js"></script>
+</head>
+	<body>
+		<!-- Preloader -->
+
+	<div id="preloader">
+		<div class="pre-container">
+			
+				<div class="spinner">
+					<div class="double-bounce1"></div>
+					<div class="double-bounce2"></div>
+				</div>
+						
+		</div>
+	</div>
+
+
+<!-- header -->
+<header class="fixbackground" data-img-mode="normal" data-normal-src="https://source.unsplash.com/collection/954550/1920x1080" data-random-max="110" data-random-src="https://sariay.github.io/Random-img/">
+	<div class="mask">
+		<!-- Logo and navigation -->
+		<div class="h-header">
+			<div id="logo">
+				<a href="/">
+						
+						<img src="/img/logo.png" alt="Logo">
+					
+				</a>
+			</div>
+			
+			<div id="navigation-show">
+				<ul>
+	
+		<li class="menu-home">
+			<a href="/" class="menu-item-home">主页</a>
+		</li>
+	
+		<li class="menu-archive">
+			<a href="/archives" class="menu-item-archive">归档</a>
+		</li>
+	
+		<li class="menu-categories">
+			<a href="/categories" class="menu-item-categories">分类</a>
+		</li>
+	
+		<li class="menu-tags">
+			<a href="/tags" class="menu-item-tags">标签</a>
+		</li>
+	
+		<li class="menu-about">
+			<a href="/about" class="menu-item-about">关于</a>
+		</li>
+	
+
+	
+</ul>
+			</div>				
+		</div>
+
+		<!-- motto -->
+		<div class="h-body">	
+			
+				<p class="motto"></p>
+			
+		</div>
+		
+		<!-- others: such as time... -->			
+		<div class="h-footer">
+			<a href="javascript:;" id="read-more"><i class="fa fa-angle-double-down" aria-hidden="true"></i>
+			</a>
+
+			
+				<!-- 
+	This is only a demo, please go to "https://time.is" to set your city time! 
+-->
+<style type="text/css">
+	.header-date {
+		font-size: 1.6rem;
+		color: #fff;
+		position: absolute;
+		bottom: 5px;
+		right: 1rem;
+		writing-mode: tb-rl;
+	}	
+	
+	.header-date a {
+		border-bottom: none;
+	}
+
+	@media only screen and (max-width: 768 ) {
+		.header-date {
+			font-size: 1rem;
+		}			
+	}
+</style>
+<div class="header-date">
+	<a href="https://time.is/Beijing" id="time_is_link" rel="nofollow"></a>
+	<span id="Beijing_z43d"></span>
+</div>
+<script src="//widget.time.is/zh.js"></script>
+<script>
+	time_is_widget.init({
+		Beijing_z43d:{
+			template:"DATE", 
+			date_format:"year年 monthname dnum日"
+		}
+	});
+</script>
+			
+		</div>
+	</div>
+</header>
+
+<div id="navigation-hide">
+	<!-- Progress bar -->
+	<div id="progress-bar"></div>
+
+	<!-- Progress percent -->
+	<div id="progress-percentage"><h1>0.0%</h1></div>
+
+	<div class="toc-switch"><span class="switch-button">目录</span></div>
+
+	<!-- Page title -->
+	<p>
+		
+			当前文章&nbsp;:&nbsp;《移动端点击事件全攻略》
+		
+	</p>
+
+	<!-- Nav trigger for navigation-H-->
+	<a class="nav-trigger"><span></span></a>
+</div>
+
+<!-- Navigation in div(id="navigation-H") -->
+<nav class="nav-container" id="cd-nav">
+	<div class="nav-header">
+		<h3>Navigation</h3>
+		<a href="javascript:;" class="nav-close"></a>
+	</div>
+	<div class="nav-body">
+		<ul>
+	
+		<li class="menu-home">
+			<a href="/" class="menu-item-home">主页</a>
+		</li>
+	
+		<li class="menu-archive">
+			<a href="/archives" class="menu-item-archive">归档</a>
+		</li>
+	
+		<li class="menu-categories">
+			<a href="/categories" class="menu-item-categories">分类</a>
+		</li>
+	
+		<li class="menu-tags">
+			<a href="/tags" class="menu-item-tags">标签</a>
+		</li>
+	
+		<li class="menu-about">
+			<a href="/about" class="menu-item-about">关于</a>
+		</li>
+	
+
+	
+</ul>
+	</div>
+	<div class="nav-footer">
+		<ul>
+	
+		<li>
+			<a href="http://github.com/" target="_blank">
+				<i class="fa fa-github"></i>
+			</a>
+		</li>
+	
+		<li>
+			<a href="http://github.com/" target="_blank">
+				<i class="fa fa-weibo"></i>
+			</a>
+		</li>
+	
+		<li>
+			<a href="http://github.com/" target="_blank">
+				<i class="fa fa-pinterest"></i>
+			</a>
+		</li>
+	
+		<li>
+			<a href="http://github.com/" target="_blank">
+				<i class="fa fa-instagram"></i>
+			</a>
+		</li>
+	
+		<li>
+			<a href="http://github.com/" target="_blank">
+				<i class="fa fa-twitter"></i>
+			</a>
+		</li>
+	
+		<li>
+			<a href="/atom.xml" target="_blank">
+				<i class="fa fa-rss"></i>
+			</a>
+		</li>
+			
+</ul>
+
+	</div>
+</nav>
+			
+		<!--main-->
+		<main>
+			<!--
+	时间：2018-11-17
+	描述：
+		插件名称：katelog.min.js
+		插件作者：KELEN
+		插件来源: https://github.com/KELEN/katelog
+-->
+	 
+
+<div class="layout-post">
+	<div id="layout-post">
+	<div class="article-title">
+		<i class="fa fa-paper-plane-o" aria-hidden="true"></i>
+		
+	<a href="/2017/03/24/移动端点击事件全攻略/" itemprop="url">
+		移动端点击事件全攻略
+	</a>
+
+	</div>
+
+	<div class="article-meta">
+		<span>
+			<i class="fa fa-calendar"></i>
+			
+
+
+	发布于
+
+	<a href="/2017/03/24/移动端点击事件全攻略/" itemprop="url">
+		<time datetime="2017-03-24T12:18:09.000Z" itemprop="datePublished">
+	  		2017-03-24
+	  </time>
+	</a>
+	&nbsp;
+
+
+
+
+
+			
+
+
+
+
+	更新于
+
+	<a href="/2017/03/24/移动端点击事件全攻略/" itemprop="url">
+		<time datetime="2017-03-24T12:18:09.000Z" itemprop="dateUpdated">
+	  		2019-05-27
+	  </time>
+	</a> 
+
+
+
+		</span>
+		<span>
+			<i class="fa fa-tags"></i>
+			
+	
+		<a href="/tags/移动端点击事件全攻略/" class=" ">
+			移动端点击事件全攻略
+		</a>
+	
+		
+		</span>
+		
+		
+
+
+
+	</div>
+
+	<div class="article-content" id="article-content">
+		<p>接触过移动端开发的前端可能都会面临点击事件的第一个问题：click事件的300ms延迟响应。不能立即响应给体验造成了很大的困扰，因此解决这个问题就成为了必然。</p>
+<p>这个问题的解决方案就是：zepto.js的tap事件。tap事件可以理解为在移动端的click事件，而zepto.js因为几乎完全复制jQuery的api，因此常常被用在h5的开发上用来取代jquery.</p>
+<p><code>由于模块化的原因，导致有的前端下载的zepto.js的模块并不全，造成了一大堆悲剧，以为zepto.js不支持一些方法，所以，下载的时候注意一点。</code></p>
+<p>然而事情到这里并没有结束，因为tap事件解决了一个300ms延迟问题，却带来了一个新的重大bug，点击穿透。</p>
+<p>点击穿透的意思，就是如果一个绝对定位或者固定定位元素处于页面最顶层，对这个元素绑定一个点击事件，那么你点击这个点对应的下面凡是有点击事件或者a标签都会被触发执行。这里就不贴图了，自行脑补各种弹窗，这种情况还是非常多的。</p>
+<p>为了解决这个问题，有的人试图用touchend来搞定。touchend会在手指离开手机屏幕时触发一次。没有300ms延迟，没有点击穿透，看上去简直就是完美的解决方案。可是！</p>
+<p>先在这里简单总结一个小知识点。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">移动端:</span><br><span class="line">  touchstart, touchmove, touchend, 以及tap</span><br><span class="line">pc端:</span><br><span class="line">  mousedown, mousemove, mouseup, click。</span><br></pre></td></tr></table></figure></p>
+<p>他们的关系和作用几乎可以对应起来，分别表示按下，滑动，松开。pc端可以用前面三个事件实现拖拽，移动端也可以用前面三个事件实现的滑动。</p>
+<p>所以，在pc端不用mouseup来替换click，就是因为他在松开鼠标的时候就会触发，导致如果我在很远的区域滑动到目标元素，然后松开，这样的情况也会触发mouseup与touchend事件。所以这种情况下是不符合点击事件的定义的。而且如果你在某种情况下，对某一个事件需要同时绑定拖拽和点击，就更加没办法解决了。</p>
+<p>另外还有一个很重要的原因导致touchend不能用来替换点击，是因为PC端不支持。老板们常常希望自己的页面不仅仅能够在移动端展示，因此还得想其他办法。</p>
+<p>我知道有经验的前端读这篇文章的时候，早就在想fastclick.js了。是的，目前来看，这是一个非常好的解决方案。为了解决300ms延迟的问题，zepto.js给出了tap事件替换的方案，而fastclick.js则是在想办法让click事件的延迟消除。因此任然是使用click事件，也就不会有点击穿透的问题。</p>
+<p>首先想办法引入fastclick.js<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">'application/javascript'</span> <span class="attr">src</span>=<span class="string">'/path/to/fastclick.js'</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<ul>
+<li><p>如果使用原生js开发则进行如下声明即可:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (<span class="string">'addEventListener'</span> <span class="keyword">in</span> <span class="built_in">document</span>) &#123;</span><br><span class="line">  <span class="built_in">document</span>.addEventListener(<span class="string">'DOMContentLoaded'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    FastClick.attach(<span class="built_in">document</span>.body);</span><br><span class="line">  &#125;, <span class="literal">false</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>如果使用jquery</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">   FastClick.attach(<span class="built_in">document</span>.body);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>如果使用CommonJS风格的框架，比如requirejs</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> attachFastClick = <span class="built_in">require</span>(<span class="string">'fastclick'</span>);</span><br><span class="line">attachFastClick(<span class="built_in">document</span>.body);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>如果使用CommonJS风格的框架，比如AMD</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> FastClick = <span class="built_in">require</span>(<span class="string">'fastclick'</span>);</span><br><span class="line">FastClick.attach(<span class="built_in">document</span>.body, options);</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>进行对应的声明之后，你就可以在移动端页面中放心大胆的使用click事件了。说到这里，就会有一个关于zepto.js与jquery选择的问题。说起来又可以写一大篇文章了，简单来说就是，实际开发中你就会发现zepto还是有点不太爽，虽然体积小点，既然click延迟的问题已经解决了，我还是更偏向于使用jquery.</p>
+<p>当然，我们要踩的坑并没有结束 - -！</p>
+<p>最近开发了一个小页面，财经日历，在日历部分，我需要同时给代表每一天的元素事件实现获取当天资讯的需求，又要给整个日历部分实现能够左右滑动来选取上一月和下一月的功能。所以我需要同时对日历部分绑定click事件和实现滑动的touchstart，touchmove，touchend事件。</p>
+<p>这个时候问题出现了。在安卓手机上，对同一个元素，如果我绑定了click事件，然后在绑定touchstart事件，click事件会处于几乎失效的状态。就算用了fastclick事件也无法避免这个问题</p>
+<p>错误演示大概如下:<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">$area.on(<span class="string">'click'</span>, <span class="string">'.weeknumber'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 点击每一天获取当天资讯</span></span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 实现左右滑动</span></span><br><span class="line">$area.on(<span class="string">'touchstart'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;&#125;)</span><br><span class="line">.on(<span class="string">'touchmove'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;&#125;)</span><br><span class="line">.on(<span class="string">'touchend'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;&#125;)</span><br></pre></td></tr></table></figure></p>
+<p>动手能力强的前端可以去试试这个坑，这种情况下，fastfclick肯定是没办法解决的。怎么办？</p>
+<p>我的第一次尝试，是在当滑动距离为0的时候，运行点击事件里面的内容。我们知道在实现滑动[不知道如何实现的前端，是时候关注我的公众号了，搜索isreact找到我]的时候，会计算一个滑动距离。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 实现滑动的大概代码</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 滑动元素translateX的初始值</span></span><br><span class="line"><span class="keyword">var</span> iscroll = device_width,</span><br><span class="line"><span class="comment">// 用来计算的中间值</span></span><br><span class="line">istarX = <span class="number">0</span>,</span><br><span class="line"></span><br><span class="line"><span class="comment">// 手指第一次点在屏幕上的x坐标</span></span><br><span class="line">istart_pageX = <span class="number">0</span>; </span><br><span class="line">   </span><br><span class="line"><span class="comment">// 绑定事件</span></span><br><span class="line">$area.on(<span class="string">'touchstart'</span>, touchstart).on(<span class="string">'touchmove'</span>, touchmove).on(<span class="string">'touchend'</span>, touchend);</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">touchstart</span>(<span class="params">event</span>) </span>&#123;</span><br><span class="line">  event.preventDefault();</span><br><span class="line">  istartX = iscroll;</span><br><span class="line">  istart_pageX = event.originalEvent.changedTouches[<span class="number">0</span>].pageX;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">touchmove</span>(<span class="params">event</span>) </span>&#123;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 滑动过程中手指位置x坐标会不停变动，这里会保存一个当前位置与初始位置的一个差值</span></span><br><span class="line">  <span class="keyword">var</span> distance = event.originalEvent.changedTouches[<span class="number">0</span>].pageX - istart_pageX;</span><br><span class="line">  iscroll = istartX + distance;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 这里是我自定义的一个css方法，用来设置元素translateX的当前值</span></span><br><span class="line">  Utils.css(area, &#123; <span class="attr">translateX</span>: iscroll &#125;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">touchend</span>(<span class="params">event</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> distance = event.originalEvent.changedTouches[<span class="number">0</span>].pageX - istart_pageX;</span><br><span class="line">  $area.off(<span class="string">'touchstart touchmove touchend'</span>);</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 根据差值的不同，执行不同的动作</span></span><br><span class="line">  <span class="keyword">if</span> (distance &lt; <span class="number">-80</span>) &#123;</span><br><span class="line">    slideNext(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        addEventSlider($area);</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">else</span> <span class="keyword">if</span> (distance &gt; <span class="number">80</span>) &#123;</span><br><span class="line">    slidePrev(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        addEventSlider($area);</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">else</span> <span class="keyword">if</span> (distance == <span class="number">0</span>) &#123;        </span><br><span class="line">    <span class="comment">/* 当差值为0时，我认为这是执行了一次点击 */</span></span><br><span class="line">    addEventSlider($area);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">else</span> &#123;</span><br><span class="line">    ani(area).animate(<span class="number">400</span>, <span class="string">'easeout'</span>, &#123; <span class="attr">x</span>: -device_width &#125;, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">      iscroll = -device_width;</span><br><span class="line">      addEventSlider($area);</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><code>上面就是我的滑动功能的实现，中间会有一些自定义的方法，因此没办法你们直接就复制过去运行。但是原理已经讲得还算明白，可以自己尝试一些简单的实现。关注我公众号会有更加详细的讲解哦！</code></p>
+<p>我的这一次尝试，就是在滑动差值distance为0的时候，认为这是一次点击，因此执行点击事件应该有的动作。本来我以为这就能够解决了，测试的时候也通过了。但是 - -！qa非常有执念的在日历上点击了50多下，结果发现，多次点击之后，在点就失去效果了！！！</p>
+<p>当发现这个bug的时候，我的内心是崩溃的。好吧，只能说，试图用touchend来代替点击事件的想法终究还是有一点不成熟。硬着头皮想办法继续解决上面的问题。</p>
+<p>再三思考各种解决方案，最终决定借用人家封装一个tap事件。封装的tap事件的代码如下。</p>
+<p><a href="http://yangbo5207.github.io/static/demo/single-instance/js/dev/tap.js" target="_blank" rel="noopener">http://yangbo5207.github.io/static/demo/single-instance/js/dev/tap.js</a></p>
+<p>这是对jquery事件的一个拓展，让jquery也能够使用tap事件。放在jquery后面引入就能够立即使用了。除此之外还扩展了longTap，swipe两个事件。</p>
+<p>使用方式和其他一样</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$area.on(<span class="string">'tap'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;&#125;);</span><br><span class="line"></span><br><span class="line">$area.tap(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;&#125;)</span><br></pre></td></tr></table></figure>
+<p>当然封装的这个tap，仍然有避免不了的点击穿透bug，所以，最终的解决方案是：对于需要同时绑定点击事件和滑动事件的元素，用tap事件，其他情况都用click事件即可。需要结合这个tap.js与fastclick.js来完美解决这个问题。心累啊，终于是搞定了。</p>
+<p>OK，最后关于移动端的点击事件总结完了，可能大家都没想到一个简单的点击事件会有那么多坑，如果大家在工作中可能会涉及到移动端开发的话，相信这篇文章还是值得你点赞和收藏的，毕竟是踩了那么多坑的经验总结。</p>
+	
+	</div>
+	
+	<div id="current-post-cover" data-scr="/img/categories-bgi/js.jpg"></div>
+
+	<!-- relate post, comment...-->
+	<div class="investment-container">
+		<div class="investment-header">
+			<div class="investment-title-1">
+				<div class="on">相关文章</div>
+				<div>评论</div>
+				<div>分享</div>
+			</div>
+			<div class="investment-title-2">	            
+				
+	<span>
+		<a href="javascript: window.scrollTo(0, 0);">返回顶部</a>
+		
+			<a href="/2017/05/06/bootstrap的tab栏中渲染echats图表切换tab时echats不显示问题/" title="关于在bootstrap的tab栏中渲染echats图表，切换tab时echats不显示问题" rel="prev">
+				&laquo;上一篇
+			</a>
+		
+			
+	</span>
+
+
+      		
+			</div>	
+		</div>
+		
+		<div class="investment-content">
+			<div class="investment-content-list">
+				
+
+<div class="relate-post">
+	
+		<ul>
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2019/03/12/完美解决ios10及以上Safari无法禁止缩放的问题/" title="完美解决ios10及以上Safari无法禁止缩放的问题">
+								完美解决ios10及以上Safari无法禁止缩放的问题			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								三月 12日, 2019				
+							</p>
+							<p class="relate-post-content">
+								移动端web缩放有两种：
+1.双击缩放；
+2.双指手势缩放。
+在iOS 10以前，iOS和Android都可以通过一行meta标签来禁止页面缩放
+1&lt;meta content="width=device-width, initi...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2019/03/12/完美解决ios10及以上Safari无法禁止缩放的问题/" title="完美解决ios10及以上Safari无法禁止缩放的问题">				
+								
+								<img class="lazy" src="/img/placeholder.jpg" data-src="/img/categories-bgi/js.jpg" alt="完美解决ios10及以上Safari无法禁止缩放的问题">
+							</a>
+						</div>
+					</li>											
+			
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2018/08/22/less使用方法总结/" title="less使用方法总结">
+								less使用方法总结			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								八月 22日, 2018				
+							</p>
+							<p class="relate-post-content">
+								1 变量我们常常在 CSS 中 看到同一个值重复多次，这样难易于代码维护。理想状态，应是下面这样：1234const bgColor="skyblue";$(".post-content").css("background-color...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2018/08/22/less使用方法总结/" title="less使用方法总结">				
+								
+								<img class="lazy" src="/img/placeholder.jpg" data-src="/img/categories-bgi/less.jpg" alt="less使用方法总结">
+							</a>
+						</div>
+					</li>											
+			
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2018/05/20/js文字排序的方法/" title="js文字排序的方法">
+								js文字排序的方法			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								五月 20日, 2018				
+							</p>
+							<p class="relate-post-content">
+								拼音排序：123456789var arr = [&#123; a: 1, b: "我" &#125;, &#123; a: 1, b: "是" &#125;, &#123; a: 1, b: "帅" &#125;, &#123; a...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2018/05/20/js文字排序的方法/" title="js文字排序的方法">				
+								
+								<img class="lazy" src="/img/placeholder.jpg" data-src="/img/categories-bgi/js.jpg" alt="js文字排序的方法">
+							</a>
+						</div>
+					</li>											
+			
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2017/11/17/手机弹框光标问题/" title="移动端ios升级到11及以上时，手机弹框输入光标出现错位问题">
+								移动端ios升级到11及以上时，手机弹框输入光标出现错位问题			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								十一月 17日, 2017				
+							</p>
+							<p class="relate-post-content">
+								
+引起原因：  弹框的定位采取position：fixed，而ios（safari）对定位属性position：fixed的解析不一致导致。
+解决方案：方案一：   一开始上网找解决方案，找到如下处理方式。但存在当页面出现滚动条时，弹...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2017/11/17/手机弹框光标问题/" title="移动端ios升级到11及以上时，手机弹框输入光标出现错位问题">				
+								
+								<img class="lazy" src="/img/placeholder.jpg" data-src="/img/categories-bgi/js.jpg" alt="移动端ios升级到11及以上时，手机弹框输入光标出现错位问题">
+							</a>
+						</div>
+					</li>											
+			
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2017/05/06/bootstrap的tab栏中渲染echats图表切换tab时echats不显示问题/" title="关于在bootstrap的tab栏中渲染echats图表，切换tab时echats不显示问题">
+								关于在bootstrap的tab栏中渲染echats图表，切换tab时echats不显示问题			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								五月 6日, 2017				
+							</p>
+							<p class="relate-post-content">
+								在开发过程中遇到这样个问题：
+利用bootstrap中的tab栏，每当点击tab栏的导航时，echats仅仅只渲染第一个tab的内容，切换tab时，echats图表不显示。html代码为：12345678910111213141516...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2017/05/06/bootstrap的tab栏中渲染echats图表切换tab时echats不显示问题/" title="关于在bootstrap的tab栏中渲染echats图表，切换tab时echats不显示问题">				
+								
+								<img class="lazy" src="/img/placeholder.jpg" data-src="/img/categories-bgi/js.jpg" alt="关于在bootstrap的tab栏中渲染echats图表，切换tab时echats不显示问题">
+							</a>
+						</div>
+					</li>											
+			
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2019/05/20/vue-pdf的使用方法及解决在线打印预览乱码/" title="vue-pdf的使用方法及解决在线打印预览乱码">
+								vue-pdf的使用方法及解决在线打印预览乱码			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								五月 20日, 2019				
+							</p>
+							<p class="relate-post-content">
+								最近在用vue做项目的时候，页面中需要展示后端返回的PDF文件，于是便用到了vue-pdf，其使用方法为 ：1npm install --save vue-pdf
+官网
+不多说了，直接上代码：
+12345678910111213141...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2019/05/20/vue-pdf的使用方法及解决在线打印预览乱码/" title="vue-pdf的使用方法及解决在线打印预览乱码">				
+								
+								<img class="lazy" src="/img/placeholder.jpg" data-src="/img/categories-bgi/vue.jpg" alt="vue-pdf的使用方法及解决在线打印预览乱码">
+							</a>
+						</div>
+					</li>											
+			
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2019/05/06/nodejs脚手架express-generator/" title="nodejs脚手架express-generator">
+								nodejs脚手架express-generator			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								五月 6日, 2019				
+							</p>
+							<p class="relate-post-content">
+								1.安装生成器1npm install express-generator -g
+2. 创建名称为APP的应用：1express my-project
+3.安装依赖包123cd my-projectnpm install
+4、启动应用...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2019/05/06/nodejs脚手架express-generator/" title="nodejs脚手架express-generator">				
+								
+								<img class="lazy" src="/img/placeholder.jpg" data-src="/img/categories-bgi/node.jpg" alt="nodejs脚手架express-generator">
+							</a>
+						</div>
+					</li>											
+			
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2019/04/20/ts中类的继承/" title="ts中类的继承">
+								ts中类的继承			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								四月 20日, 2019				
+							</p>
+							<p class="relate-post-content">
+								定义类1234567891011class Person &#123;    name: string;   //属性    constructor(_name: string) &#123;        this.name = _...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2019/04/20/ts中类的继承/" title="ts中类的继承">				
+								
+								<img class="lazy" src="/img/placeholder.jpg" data-src="/img/categories-bgi/ts.jpg" alt="ts中类的继承">
+							</a>
+						</div>
+					</li>											
+			
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2019/04/18/vue-cli3+typescript+router/" title="vue-cli3+typescript+router">
+								vue-cli3+typescript+router			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								四月 18日, 2019				
+							</p>
+							<p class="relate-post-content">
+								vue基于类的写法，和基于对象的写法并不一致。使用vue-cli3创建的项目，src目录下的文件结构并没有多大区别，store、router、app、view、components、aeests该有的还是有的。但是，多了一个东西：vu...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2019/04/18/vue-cli3+typescript+router/" title="vue-cli3+typescript+router">				
+								
+								<img class="lazy" src="/img/placeholder.jpg" data-src="/img/categories-bgi/vue.jpg" alt="vue-cli3+typescript+router">
+							</a>
+						</div>
+					</li>											
+			
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2019/03/08/微信小程序video组件出现无法播放或卡顿/" title="微信小程序video组件出现无法播放或卡顿">
+								微信小程序video组件出现无法播放或卡顿			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								三月 8日, 2019				
+							</p>
+							<p class="relate-post-content">
+								微信小程序使用video组件播放视频的时候，会出现卡顿或者无法播放的问题，加一个custom-cache=”true“即可解决，这个属性文档上没有，是从小程序开发社区中get到的。
+
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2019/03/08/微信小程序video组件出现无法播放或卡顿/" title="微信小程序video组件出现无法播放或卡顿">				
+								
+								<img class="lazy" src="/img/placeholder.jpg" data-src="/img/categories-bgi/wechat.jpg" alt="微信小程序video组件出现无法播放或卡顿">
+							</a>
+						</div>
+					</li>											
+			
+			
+		</ul>
+	
+</div>	
+			</div>
+			<div class="investment-content-list">
+				<div class="layout-comment">
+
+	
+
+		
+
+			<!-- I don't know !!!-->
+			<div>Please check the comment setting in config.yml of hexo-theme-Annie!</div>
+			
+		
+		
+	
+
+</div>
+			</div>
+			<div class="investment-content-list">
+				<div class="layout-share">
+	
+	
+
+		
+			
+			<!-- socialShare share -->
+			<div class="social-share"></div>
+
+<!--  css & js -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css">
+<script async src="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script>
+			
+		
+		
+	
+</div>
+
+
+			</div>
+		</div>	
+	</div>
+	</div>
+</div>
+
+
+
+	<!-- leancloud -->
+	<!--
+	时间：2018-11-27
+	描述：
+		文章访问量：visitors
+		文章喜欢量：likes	
+		文章排行榜：topNPost
+		其他得说明：
+			01-Cookie相关的函数 
+				https://blog.csdn.net/somehow1002/article/details/78511541（Author：somehow1002）
+			02-visitors相关的函数 
+				https://blog.csdn.net/u013553529/article/details/63357382（Author：爱博客大伯）
+				https://notes.doublemine.me/2015-10-21-为NexT主题添加文章阅读量统计功能.html（Author：夏末）
+			03-topNPost相关的函数
+				https://hoxis.github.io/hexo-next-read-rank.html（Author：hoxis）
+			04-likes相关的函数，
+				参考了01 & 02进行简单的设计与实现
+-->
+
+
+	
+
+
+<!-- show math formula -->
+
+
+
+	 
+	<script src="/plugin/clipboard/clipboard.js"></script>
+	<script>
+		// Copy code !
+	    function codePreprocessing() {
+	        $("#article-content .highlight").each(function() {
+
+	            $(this).wrap('<div id="post-code"></div>');
+
+	        })
+
+	        $("#article-content #post-code").each(function() {
+
+	            $(this).prepend('<nav class="copy-nav"><span><i class="code-language"></i></span></nav>');
+
+	        })
+
+	        $("#article-content .copy-nav").each(function() {
+	            var temp = $(this).next().attr('class'),
+	                language = ((temp.length > 9) && (temp != null)) ? temp.substr(10) : "none"; //why 9? Need to check language?
+
+	            $(this).find('.code-language').text(language);
+
+	            $(this).append('<span class="copy-btn"><i class="fa fa-copy" aria-hidden="true"></i></span>');
+
+	        });
+	    }
+
+		function codeCopy() {
+		    $('#article-content #post-code').each(function(i) {
+		        var codeCopyId = 'codeCopy-' + i;
+
+		        var codeNode = $(this).find('.code'),
+		            copyButton = $(this).find('.copy-btn');
+
+		        codeNode.attr('id', codeCopyId);
+		        copyButton.attr('data-clipboard-target-id', codeCopyId);
+		    })
+
+		    
+			var clipboard = new ClipboardJS('.copy-btn', {
+					target: function(trigger) {
+						return document.getElementById(trigger.getAttribute('data-clipboard-target-id'));
+					}
+		      	});
+
+			//pure js
+			function showTooltip(elem, msg) {		   
+				elem.setAttribute('aria-label', msg);
+				elem.setAttribute('class', 'copy-btn copy-status');
+				setTimeout(function() {
+					elem.setAttribute('class', 'copy-btn');
+				}, 2000);
+			}
+
+			clipboard.on('success', function(e) {
+			    e.clearSelection();
+			    console.info('Action:', e.action);		   
+			    console.info('Trigger:', e.trigger);
+			    showTooltip(e.trigger, 'Copied!');
+			    
+			});
+			clipboard.on('error', function(e) {
+			    console.error('Action:', e.action);
+			    console.error('Trigger:', e.trigger);
+			});
+		
+
+		}
+
+		if ($('.layout-post').length) {
+		    codePreprocessing();
+		    codeCopy();
+		} 
+	</script>
+
+
+
+
+
+<link rel="stylesheet" href="/plugin/fancybox/jquery.fancybox.css">
+<script src="/plugin/fancybox/jquery.fancybox.js"></script>
+
+<script type="text/javascript">
+	var titleID = $('.article-title a'),
+		imageID = $('.article-content img'),
+		videoID = $('.article-content video');
+
+	var postTitle = titleID.text() ? titleID.text() : "No post title!";
+
+	imageID.each(function() {
+		var imgPath = $(this).attr('src'),
+			imgTitle = $(this).attr('alt') ? $(this).attr('alt') : "No image description!";
+
+		//给每个匹配的<img>元素打包, 即添加父元素<a>
+		$(this).wrap('<a data-fancybox="gallery" data-caption=" 《 ' + postTitle + ' 》 ' + imgTitle + ' "  href=" ' + imgPath + ' "> </a>');
+	});
+
+	videoID.each(function() {
+		var videoPath = $(this).attr('src');
+
+		//给每个匹配的<img>元素打包, 即添加父元素<a>
+		$(this).wrap('<a data-fancybox href=" ' + videoPath + ' "> </a>');
+	});
+	//TODO：支持html5 video
+
+	if($('#layout-post').length) {
+		$('[data-fancybox="gallery"]').fancybox({
+			loop: true,
+			buttons: [
+				"zoom",
+				"share",
+				"slideShow",
+				"fullScreen",
+				//"download",
+				"thumbs",
+				"close"
+			],
+			protect: false
+		});
+	}
+</script>
+		</main>
+
+		<!--footer-->
+		<footer>
+	<div class="social">
+		<ul>
+	
+		<li>
+			<a href="http://github.com/" target="_blank">
+				<i class="fa fa-github"></i>
+			</a>
+		</li>
+	
+		<li>
+			<a href="http://github.com/" target="_blank">
+				<i class="fa fa-weibo"></i>
+			</a>
+		</li>
+	
+		<li>
+			<a href="http://github.com/" target="_blank">
+				<i class="fa fa-pinterest"></i>
+			</a>
+		</li>
+	
+		<li>
+			<a href="http://github.com/" target="_blank">
+				<i class="fa fa-instagram"></i>
+			</a>
+		</li>
+	
+		<li>
+			<a href="http://github.com/" target="_blank">
+				<i class="fa fa-twitter"></i>
+			</a>
+		</li>
+	
+		<li>
+			<a href="/atom.xml" target="_blank">
+				<i class="fa fa-rss"></i>
+			</a>
+		</li>
+			
+</ul>
+
+	</div>
+		
+	<div class="copyright">
+		<p>
+			 
+				&copy;2017 - 2019, content by Mr. Meng. All Rights Reserved.
+			
+			
+			
+
+	<!-- busuanzi -->
+	<!-- busuanzi -->
+
+		
+	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+	
+
+		<span id="busuanzi_container_page_pv">
+	  		本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+		</span>
+
+	
+
+
+
+
+		</p>
+		<p>
+			<a href="http://hexo.io/" title="Hexo" target="_blank" rel="noopener">Hexo</a> Theme <a href="https://github.com/Sariay/hexo-theme-Annie" title="Annie" target="_blank" rel="noopener">Annie</a> by Sariay.
+			<a href="javascript:zh_tran('s');" class="zh_click" id="zh_click_s">简体</a> 
+			<a href="javascript:zh_tran('t');" class="zh_click" id="zh_click_t">繁體</a>				
+		</p>
+	</div>		
+</footer>
+		
+	<!-- set '1' to show motto in all pages! -->
+
+	<script src="/plugin/motto/motto.js"></script>
+	
+	<script type="text/javascript">
+		$(".motto").html( getMingYanContent() );
+	</script>	
+
+
+
+
+
+<!-- love effect -->
+
+	<script src="/plugin/love/love.js"></script>
+
+
+<!-- back to top -->
+
+	
+	<div id="totop">
+  		<a href="javascript:;" name="TOTOP" class="fa fa-arrow-up"></a>
+	</div>
+
+
+
+
+<!-- site analysis -->
+
+
+	<!-- site-analysis -->
+	
+	
+	
+	
+	
+ 
+
+<script src="/plugin/vibrant/vibrant.js"></script>
+<script src="/plugin/chinese/chinese.js"></script>
+<script src="/plugin/imgLazyLoader/yall.min.js"></script>
+<script src="/plugin/imgResize/jquery.resizeimagetoparent.min.js"></script>
+<script src="/plugin/nicescroll/jquery.nicescroll.js"></script>
+<script src="/js/resizediv.js"></script>
+<script src="/js/main.js"></script>
+	</body>	
+</html>

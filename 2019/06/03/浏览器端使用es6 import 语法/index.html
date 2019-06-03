@@ -13,7 +13,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
   <title>
     
-      小程序父子组件通信-传值 | Mr. Meng&#39;s blogs
+      浏览器端使用es6 import 语法 | Mr. Meng&#39;s blogs
     
   </title>
   <meta name="author" content="Mr. Meng">
@@ -156,7 +156,7 @@
 	<!-- Page title -->
 	<p>
 		
-			当前文章&nbsp;:&nbsp;《小程序父子组件通信-传值》
+			当前文章&nbsp;:&nbsp;《浏览器端使用es6 import 语法》
 		
 	</p>
 
@@ -250,6 +250,18 @@
 		插件作者：KELEN
 		插件来源: https://github.com/KELEN/katelog
 -->
+
+	
+		<div class="layout-toc">
+			<div id="layout-toc">
+				<div class="k-catelog-list" id="catelog-list" data-title="文章目录"></div>
+			</div>
+		</div>
+
+		
+		<script src="/plugin/toc/katelog.min.js"></script>
+
+		
 	 
 
 <div class="layout-post">
@@ -257,8 +269,8 @@
 	<div class="article-title">
 		<i class="fa fa-paper-plane-o" aria-hidden="true"></i>
 		
-	<a href="/2019/03/05/小程序父子组件通信-传值/" itemprop="url">
-		小程序父子组件通信-传值
+	<a href="/2019/06/03/浏览器端使用es6 import 语法/" itemprop="url">
+		浏览器端使用es6 import 语法
 	</a>
 
 	</div>
@@ -271,9 +283,9 @@
 
 	发布于
 
-	<a href="/2019/03/05/小程序父子组件通信-传值/" itemprop="url">
-		<time datetime="2019-03-05T03:17:16.000Z" itemprop="datePublished">
-	  		2019-03-05
+	<a href="/2019/06/03/浏览器端使用es6 import 语法/" itemprop="url">
+		<time datetime="2019-06-03T08:05:10.000Z" itemprop="datePublished">
+	  		2019-06-03
 	  </time>
 	</a>
 	&nbsp;
@@ -289,9 +301,9 @@
 
 	更新于
 
-	<a href="/2019/03/05/小程序父子组件通信-传值/" itemprop="url">
-		<time datetime="2019-03-05T03:17:16.000Z" itemprop="dateUpdated">
-	  		2019-05-28
+	<a href="/2019/06/03/浏览器端使用es6 import 语法/" itemprop="url">
+		<time datetime="2019-06-03T08:05:10.000Z" itemprop="dateUpdated">
+	  		2019-06-03
 	  </time>
 	</a> 
 
@@ -302,8 +314,8 @@
 			<i class="fa fa-tags"></i>
 			
 	
-		<a href="/tags/小程序父子组件通信-传值/" class=" ">
-			小程序父子组件通信-传值
+		<a href="/tags/浏览器端使用es6-import-语法/" class=" ">
+			浏览器端使用es6 import 语法
 		</a>
 	
 		
@@ -316,13 +328,15 @@
 	</div>
 
 	<div class="article-content" id="article-content">
-		<p>父组件中<br>default-value为传递给子组件的值<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">x-picker-date</span> <span class="attr">id</span>=<span class="string">"picker-date"</span> </span></span><br><span class="line"><span class="tag"><span class="attr">default-value</span>=<span class="string">"&#123;&#123;newTime&#125;&#125;"</span> </span></span><br><span class="line"><span class="tag"><span class="attr">wx:if</span>=<span class="string">"&#123;&#123;showPicker&#125;&#125;"</span> </span></span><br><span class="line"><span class="tag"><span class="attr">bind:myevent</span>=<span class="string">"toggleToast"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">x-picker-date</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
-<p>父组件js<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">showPickerDate(e) &#123;</span><br><span class="line">  <span class="keyword">this</span>.setData(&#123; <span class="attr">showPicker</span>: <span class="literal">true</span> &#125;)</span><br><span class="line">  <span class="comment">// 调用子组件中methods的onshow方法</span></span><br><span class="line">  <span class="keyword">this</span>.selectComponent(<span class="string">'#picker-date'</span>).onshow()</span><br><span class="line">&#125;,</span><br><span class="line"><span class="comment">// 获取子组件信息</span></span><br><span class="line">toggleToast(e)&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(e.detail)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>子组件js中<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">properties: &#123;</span><br><span class="line"><span class="comment">// 父组件传值</span></span><br><span class="line">    defaultValue: &#123;</span><br><span class="line">      type: <span class="built_in">String</span>,</span><br><span class="line">      value: <span class="string">'default value'</span>,</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">methods: &#123;</span><br><span class="line">    onshow() &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="keyword">this</span>.data.defaultValue)</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="comment">// 传递给父组件</span></span><br><span class="line">    cancelBut: <span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123;</span><br><span class="line">      <span class="keyword">var</span> that = <span class="keyword">this</span>;</span><br><span class="line">      <span class="keyword">var</span> myEventDetail = &#123; <span class="attr">pickerShow</span>: <span class="literal">false</span>, <span class="attr">type</span>: <span class="string">'cancel'</span> &#125; <span class="comment">// detail对象，提供给事件监听函数</span></span><br><span class="line">      <span class="keyword">this</span>.triggerEvent(<span class="string">'myevent'</span>, myEventDetail) <span class="comment">//myevent自定义名称事件，父组件中使用</span></span><br><span class="line">    &#125;,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-	
+		<h5 id="通常我们会在开发H5页面时，会引用一些外部的js，但是这些-js-很有可能是通过-es6-语法书写并通过-export-或-export-default-导出的，可是我们在页面中根本无法通过-script-标签将这样的js导入并使用（浏览器报错），下面是我百度到的结果可以解决这一问题："><a href="#通常我们会在开发H5页面时，会引用一些外部的js，但是这些-js-很有可能是通过-es6-语法书写并通过-export-或-export-default-导出的，可是我们在页面中根本无法通过-script-标签将这样的js导入并使用（浏览器报错），下面是我百度到的结果可以解决这一问题：" class="headerlink" title="通常我们会在开发H5页面时，会引用一些外部的js，但是这些 js 很有可能是通过 es6 语法书写并通过 export 或 export default 导出的，可是我们在页面中根本无法通过 script 标签将这样的js导入并使用（浏览器报错），下面是我百度到的结果可以解决这一问题："></a>通常我们会在开发H5页面时，会引用一些外部的js，但是这些 js 很有可能是通过 es6 语法书写并通过 export 或 export default 导出的，可是我们在页面中根本无法通过 script 标签将这样的js导入并使用（浏览器报错），下面是我百度到的结果可以解决这一问题：</h5><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"module"</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript">  <span class="keyword">import</span> getNum <span class="keyword">from</span> <span class="string">'./main.js'</span> </span></span><br><span class="line"><span class="javascript">  <span class="keyword">const</span> result = getNum()</span></span><br><span class="line"><span class="javascript">  <span class="built_in">console</span>.log(result) <span class="comment">// 2</span></span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// main.js</span></span><br><span class="line"><span class="built_in">module</span>.export <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">const</span> num = <span class="number">1</span></span><br><span class="line">  <span class="keyword">return</span> num + <span class="number">1</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>  或者通过外联方法导入</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"module"</span> <span class="attr">src</span>=<span class="string">"./js.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// js.js</span></span><br><span class="line"><span class="keyword">import</span> getNum <span class="keyword">from</span> <span class="string">'./main.js'</span> </span><br><span class="line"><span class="keyword">const</span> result = getNum()</span><br><span class="line"><span class="built_in">console</span>.log(result) <span class="comment">// 2</span></span><br></pre></td></tr></table></figure>
+<h6 id="注意：此种方法必须要开启-web-服务器才能执行，否则浏览器还会报错！！！"><a href="#注意：此种方法必须要开启-web-服务器才能执行，否则浏览器还会报错！！！" class="headerlink" title="注意：此种方法必须要开启 web 服务器才能执行，否则浏览器还会报错！！！"></a>注意：此种方法必须要开启 web 服务器才能执行，否则浏览器还会报错！！！</h6>	
 	</div>
 	
-	<div id="current-post-cover" data-scr="/img/categories-bgi/wechat.jpg"></div>
+	<div id="current-post-cover" data-scr="/img/categories-bgi/js.jpg"></div>
 
 	<!-- relate post, comment...-->
 	<div class="investment-container">
@@ -337,12 +351,8 @@
 	<span>
 		<a href="javascript: window.scrollTo(0, 0);">返回顶部</a>
 		
-			<a href="/2019/03/08/微信小程序video组件出现无法播放或卡顿/" title="微信小程序video组件出现无法播放或卡顿" rel="prev">
-				&laquo;上一篇
-			</a>
 		
-		
-			<a href="/2019/02/20/微信小程序自定义组件的使用以及调用自定义组件中的方法/" title="微信小程序自定义组件的使用以及调用自定义组件中的方法" rel="next">
+			<a href="/2019/05/20/vue-pdf的使用方法及解决在线打印预览乱码/" title="vue-pdf的使用方法及解决在线打印预览乱码" rel="next">
 				下一篇&raquo;
 			</a>
 			
@@ -363,23 +373,22 @@
 			
 					<li>
 						<div class="relate-post-text">
-							<a class="relate-post-title" href="/2019/03/08/微信小程序video组件出现无法播放或卡顿/" title="微信小程序video组件出现无法播放或卡顿">
-								微信小程序video组件出现无法播放或卡顿			
+							<a class="relate-post-title" href="/2018/12/10/js数组遍历方法总结/" title="js数组遍历方法总结">
+								js数组遍历方法总结			
 							</a>
 							<p class="relate-post-date">
 								<i class="fa fa-calendar"></i>
-								三月 8日, 2019				
+								十二月 10日, 2018				
 							</p>
 							<p class="relate-post-content">
-								微信小程序使用video组件播放视频的时候，会出现卡顿或者无法播放的问题，加一个custom-cache=”true“即可解决，这个属性文档上没有，是从小程序开发社区中get到的。
-
+								1.for循环使用临时变量，将长度缓存起来，避免重复获取数组长度，当数组较大时优化效果才会比较明显。123for(j = 0,len=arr.length; j &lt; len; j++) &#123;    // 代码片段&#12...
 							</p>
 						</div>
 
 						<div class="relate-post-cover">
-							<a href="/2019/03/08/微信小程序video组件出现无法播放或卡顿/" title="微信小程序video组件出现无法播放或卡顿">				
+							<a href="/2018/12/10/js数组遍历方法总结/" title="js数组遍历方法总结">				
 								
-								<img class="lazy" src="/img/placeholder.jpg" data-src="/img/categories-bgi/wechat.jpg" alt="微信小程序video组件出现无法播放或卡顿">
+								<img class="lazy" src="/img/placeholder.jpg" data-src="/img/categories-bgi/js.jpg" alt="js数组遍历方法总结">
 							</a>
 						</div>
 					</li>											
@@ -387,22 +396,22 @@
 			
 					<li>
 						<div class="relate-post-text">
-							<a class="relate-post-title" href="/2019/02/20/微信小程序自定义组件的使用以及调用自定义组件中的方法/" title="微信小程序自定义组件的使用以及调用自定义组件中的方法">
-								微信小程序自定义组件的使用以及调用自定义组件中的方法			
+							<a class="relate-post-title" href="/2018/07/19/async await处理异步/" title="async/await处理异步">
+								async/await处理异步			
 							</a>
 							<p class="relate-post-date">
 								<i class="fa fa-calendar"></i>
-								二月 20日, 2019				
+								七月 19日, 2018				
 							</p>
 							<p class="relate-post-content">
-								在写小程序的时候，有时候页面的内容过多，逻辑比较复杂，如果全部都写在一个页面的话，会比较繁杂，代码可读性比较差，也不易于后期代码维护，这时候可以把里面某部分功能抽出来，单独封装为一个组件，也就是通常说的自定义组件，自定义组件类似于页面...
+								async作为一个关键字放到函数前面，用于表示函数是一个异步函数，因为async就是异步的意思， 异步函数也就意味着该函数的执行不会阻塞后面代码的执行。 写一个async 函数：123async function timeout() ...
 							</p>
 						</div>
 
 						<div class="relate-post-cover">
-							<a href="/2019/02/20/微信小程序自定义组件的使用以及调用自定义组件中的方法/" title="微信小程序自定义组件的使用以及调用自定义组件中的方法">				
+							<a href="/2018/07/19/async await处理异步/" title="async/await处理异步">				
 								
-								<img class="lazy" src="/img/placeholder.jpg" data-src="/img/categories-bgi/wechat.jpg" alt="微信小程序自定义组件的使用以及调用自定义组件中的方法">
+								<img class="lazy" src="/img/placeholder.jpg" data-src="/img/categories-bgi/js.jpg" alt="async/await处理异步">
 							</a>
 						</div>
 					</li>											
@@ -410,22 +419,48 @@
 			
 					<li>
 						<div class="relate-post-text">
-							<a class="relate-post-title" href="/2019/06/03/浏览器端使用es6 import 语法/" title="浏览器端使用es6 import 语法">
-								浏览器端使用es6 import 语法			
+							<a class="relate-post-title" href="/2018/03/30/js获取浏览器中相关容器的高度/" title="js获取浏览器中相关容器的高度">
+								js获取浏览器中相关容器的高度			
 							</a>
 							<p class="relate-post-date">
 								<i class="fa fa-calendar"></i>
-								六月 3日, 2019				
+								三月 30日, 2018				
 							</p>
 							<p class="relate-post-content">
-								通常我们会在开发H5页面时，会引用一些外部的js，但是这些 js 很有可能是通过 es6 语法书写并通过 export 或 export default 导出的，可是我们在页面中根本无法通过 script 标签将这样的js导入并使用（...
+								网页可见区域宽：1document.body.clientWidth
+网页可见区域高：1document.body.clientHeight
+网页可见区域宽：1document.body.offsetWidth // (包括边线的宽)...
 							</p>
 						</div>
 
 						<div class="relate-post-cover">
-							<a href="/2019/06/03/浏览器端使用es6 import 语法/" title="浏览器端使用es6 import 语法">				
+							<a href="/2018/03/30/js获取浏览器中相关容器的高度/" title="js获取浏览器中相关容器的高度">				
 								
-								<img class="lazy" src="/img/placeholder.jpg" data-src="/img/categories-bgi/js.jpg" alt="浏览器端使用es6 import 语法">
+								<img class="lazy" src="/img/placeholder.jpg" data-src="/img/categories-bgi/js.jpg" alt="js获取浏览器中相关容器的高度">
+							</a>
+						</div>
+					</li>											
+			
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2018/01/08/JS中对URL进行转码与解码/" title="JS中对URL进行转码与解码">
+								JS中对URL进行转码与解码			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								一月 8日, 2018				
+							</p>
+							<p class="relate-post-content">
+								1. escape 和 unescapeescape()不能直接用于URL编码，它的真正作用是返回一个字符的Unicode编码值。
+采用unicode字符集对指定的字符串除0-255以外进行编码。所有的空格符、标点符号、特殊字符以及更...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2018/01/08/JS中对URL进行转码与解码/" title="JS中对URL进行转码与解码">				
+								
+								<img class="lazy" src="/img/placeholder.jpg" data-src="/img/categories-bgi/js.jpg" alt="JS中对URL进行转码与解码">
 							</a>
 						</div>
 					</li>											
@@ -558,47 +593,23 @@
 			
 					<li>
 						<div class="relate-post-text">
-							<a class="relate-post-title" href="/2019/01/18/在vue中使用less/" title="在vue中使用less">
-								在vue中使用less			
+							<a class="relate-post-title" href="/2019/03/08/微信小程序video组件出现无法播放或卡顿/" title="微信小程序video组件出现无法播放或卡顿">
+								微信小程序video组件出现无法播放或卡顿			
 							</a>
 							<p class="relate-post-date">
 								<i class="fa fa-calendar"></i>
-								一月 18日, 2019				
+								三月 8日, 2019				
 							</p>
 							<p class="relate-post-content">
-								第一步：安装 less 和less-loader1npm install less less-loader --save
-第二步：配置webpack.base.config.js文件　　修改webpack.base.config.js...
+								微信小程序使用video组件播放视频的时候，会出现卡顿或者无法播放的问题，加一个custom-cache=”true“即可解决，这个属性文档上没有，是从小程序开发社区中get到的。
+
 							</p>
 						</div>
 
 						<div class="relate-post-cover">
-							<a href="/2019/01/18/在vue中使用less/" title="在vue中使用less">				
+							<a href="/2019/03/08/微信小程序video组件出现无法播放或卡顿/" title="微信小程序video组件出现无法播放或卡顿">				
 								
-								<img class="lazy" src="/img/placeholder.jpg" data-src="/img/categories-bgi/vue.jpg" alt="在vue中使用less">
-							</a>
-						</div>
-					</li>											
-			
-			
-					<li>
-						<div class="relate-post-text">
-							<a class="relate-post-title" href="/2018/12/16/vue2.0中关于active-class/" title="vue2.0中关于active-class">
-								vue2.0中关于active-class			
-							</a>
-							<p class="relate-post-date">
-								<i class="fa fa-calendar"></i>
-								十二月 16日, 2018				
-							</p>
-							<p class="relate-post-content">
-								一、首先，active-class是什么，active-class是vue-router模块的router-link组件中的属性，用来做选中样式的切换查阅相关文档
-二、在vue-router中要使用active-class有两种方法：...
-							</p>
-						</div>
-
-						<div class="relate-post-cover">
-							<a href="/2018/12/16/vue2.0中关于active-class/" title="vue2.0中关于active-class">				
-								
-								<img class="lazy" src="/img/placeholder.jpg" data-src="/img/categories-bgi/vue.jpg" alt="vue2.0中关于active-class">
+								<img class="lazy" src="/img/placeholder.jpg" data-src="/img/categories-bgi/wechat.jpg" alt="微信小程序video组件出现无法播放或卡顿">
 							</a>
 						</div>
 					</li>											

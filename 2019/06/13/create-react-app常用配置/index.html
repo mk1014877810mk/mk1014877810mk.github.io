@@ -1,0 +1,971 @@
+<!--
+	作者：Sariay
+	时间：2018-09-25
+	描述：There may be a bug, but don't worry, QiLing(器灵) says that it can work normally!
+-->
+<!DOCTYPE html>
+<html class="html-loading">
+		
+
+<head><meta name="generator" content="Hexo 3.8.0">
+	<meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+  <title>
+    
+      create-react-app常用配置 | Mr. Meng&#39;s blogs
+    
+  </title>
+  <meta name="author" content="Mr. Meng">
+  <meta name="keywords" content>
+  <meta name="description" content>
+	<!-- favicon -->
+  <link rel="shortcut icon" href="/img/favicon.ico">
+
+  <!-- css -->
+  <link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="/css/Annie.css">
+  
+  <!-- jquery -->
+	<script src="/js/jquery.min.js"></script>
+
+  <!-- leancloud -->
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+<script src="/js/leancloud.js"></script>
+</head>
+	<body>
+		<!-- Preloader -->
+
+	<div id="preloader">
+		<div class="pre-container">
+			
+				<div class="spinner">
+					<div class="double-bounce1"></div>
+					<div class="double-bounce2"></div>
+				</div>
+						
+		</div>
+	</div>
+
+
+<!-- header -->
+<header class="fixbackground" data-img-mode="normal" data-normal-src="https://source.unsplash.com/collection/954550/1920x1080" data-random-max="110" data-random-src="https://sariay.github.io/Random-img/">
+	<div class="mask">
+		<!-- Logo and navigation -->
+		<div class="h-header">
+			<div id="logo">
+				<a href="/">
+						
+						<img src="/img/logo.png" alt="Logo">
+					
+				</a>
+			</div>
+			
+			<div id="navigation-show">
+				<ul>
+	
+		<li class="menu-home">
+			<a href="/" class="menu-item-home">主页</a>
+		</li>
+	
+		<li class="menu-archive">
+			<a href="/archives" class="menu-item-archive">归档</a>
+		</li>
+	
+		<li class="menu-categories">
+			<a href="/categories" class="menu-item-categories">分类</a>
+		</li>
+	
+		<li class="menu-tags">
+			<a href="/tags" class="menu-item-tags">标签</a>
+		</li>
+	
+		<li class="menu-about">
+			<a href="/about" class="menu-item-about">关于</a>
+		</li>
+	
+
+	
+</ul>
+			</div>				
+		</div>
+
+		<!-- motto -->
+		<div class="h-body">	
+			
+				<p class="motto"></p>
+			
+		</div>
+		
+		<!-- others: such as time... -->			
+		<div class="h-footer">
+			<a href="javascript:;" id="read-more"><i class="fa fa-angle-double-down" aria-hidden="true"></i>
+			</a>
+
+			
+				<!-- 
+	This is only a demo, please go to "https://time.is" to set your city time! 
+-->
+<style type="text/css">
+	.header-date {
+		font-size: 1.6rem;
+		color: #fff;
+		position: absolute;
+		bottom: 5px;
+		right: 1rem;
+		writing-mode: tb-rl;
+	}	
+	
+	.header-date a {
+		border-bottom: none;
+	}
+
+	@media only screen and (max-width: 768 ) {
+		.header-date {
+			font-size: 1rem;
+		}			
+	}
+</style>
+<div class="header-date">
+	<a href="https://time.is/Beijing" id="time_is_link" rel="nofollow"></a>
+	<span id="Beijing_z43d"></span>
+</div>
+<script src="//widget.time.is/zh.js"></script>
+<script>
+	time_is_widget.init({
+		Beijing_z43d:{
+			template:"DATE", 
+			date_format:"year年 monthname dnum日"
+		}
+	});
+</script>
+			
+		</div>
+	</div>
+</header>
+
+<div id="navigation-hide">
+	<!-- Progress bar -->
+	<div id="progress-bar"></div>
+
+	<!-- Progress percent -->
+	<div id="progress-percentage"><h1>0.0%</h1></div>
+
+	<div class="toc-switch"><span class="switch-button">目录</span></div>
+
+	<!-- Page title -->
+	<p>
+		
+			当前文章&nbsp;:&nbsp;《create-react-app常用配置》
+		
+	</p>
+
+	<!-- Nav trigger for navigation-H-->
+	<a class="nav-trigger"><span></span></a>
+</div>
+
+<!-- Navigation in div(id="navigation-H") -->
+<nav class="nav-container" id="cd-nav">
+	<div class="nav-header">
+		<h3>Navigation</h3>
+		<a href="javascript:;" class="nav-close"></a>
+	</div>
+	<div class="nav-body">
+		<ul>
+	
+		<li class="menu-home">
+			<a href="/" class="menu-item-home">主页</a>
+		</li>
+	
+		<li class="menu-archive">
+			<a href="/archives" class="menu-item-archive">归档</a>
+		</li>
+	
+		<li class="menu-categories">
+			<a href="/categories" class="menu-item-categories">分类</a>
+		</li>
+	
+		<li class="menu-tags">
+			<a href="/tags" class="menu-item-tags">标签</a>
+		</li>
+	
+		<li class="menu-about">
+			<a href="/about" class="menu-item-about">关于</a>
+		</li>
+	
+
+	
+</ul>
+	</div>
+	<div class="nav-footer">
+		<ul>
+	
+		<li>
+			<a href="http://github.com/" target="_blank">
+				<i class="fa fa-github"></i>
+			</a>
+		</li>
+	
+		<li>
+			<a href="http://github.com/" target="_blank">
+				<i class="fa fa-weibo"></i>
+			</a>
+		</li>
+	
+		<li>
+			<a href="http://github.com/" target="_blank">
+				<i class="fa fa-pinterest"></i>
+			</a>
+		</li>
+	
+		<li>
+			<a href="http://github.com/" target="_blank">
+				<i class="fa fa-instagram"></i>
+			</a>
+		</li>
+	
+		<li>
+			<a href="http://github.com/" target="_blank">
+				<i class="fa fa-twitter"></i>
+			</a>
+		</li>
+	
+		<li>
+			<a href="/atom.xml" target="_blank">
+				<i class="fa fa-rss"></i>
+			</a>
+		</li>
+			
+</ul>
+
+	</div>
+</nav>
+			
+		<!--main-->
+		<main>
+			<!--
+	时间：2018-11-17
+	描述：
+		插件名称：katelog.min.js
+		插件作者：KELEN
+		插件来源: https://github.com/KELEN/katelog
+-->
+
+	
+		<div class="layout-toc">
+			<div id="layout-toc">
+				<div class="k-catelog-list" id="catelog-list" data-title="文章目录"></div>
+			</div>
+		</div>
+
+		
+		<script src="/plugin/toc/katelog.min.js"></script>
+
+		
+	 
+
+<div class="layout-post">
+	<div id="layout-post">
+	<div class="article-title">
+		<i class="fa fa-paper-plane-o" aria-hidden="true"></i>
+		
+	<a href="/2019/06/13/create-react-app常用配置/" itemprop="url">
+		create-react-app常用配置
+	</a>
+
+	</div>
+
+	<div class="article-meta">
+		<span>
+			<i class="fa fa-calendar"></i>
+			
+
+
+	发布于
+
+	<a href="/2019/06/13/create-react-app常用配置/" itemprop="url">
+		<time datetime="2019-06-13T08:05:10.000Z" itemprop="datePublished">
+	  		2019-06-13
+	  </time>
+	</a>
+	&nbsp;
+
+
+
+
+
+			
+
+
+
+
+	更新于
+
+	<a href="/2019/06/13/create-react-app常用配置/" itemprop="url">
+		<time datetime="2019-06-13T08:05:10.000Z" itemprop="dateUpdated">
+	  		2019-06-14
+	  </time>
+	</a> 
+
+
+
+		</span>
+		<span>
+			<i class="fa fa-tags"></i>
+			
+	
+		<a href="/tags/create-react-app常用配置/" class=" ">
+			create-react-app常用配置
+		</a>
+	
+		
+		</span>
+		
+		
+
+
+
+	</div>
+
+	<div class="article-content" id="article-content">
+		<h5 id="搭建-react-项目运用脚手架是再方便不过了，本人最常用的就是-create-react-app-antd-，但是至于模板中的配置与开发中还是有些不符，所以需要我们自行配置。"><a href="#搭建-react-项目运用脚手架是再方便不过了，本人最常用的就是-create-react-app-antd-，但是至于模板中的配置与开发中还是有些不符，所以需要我们自行配置。" class="headerlink" title="搭建 react 项目运用脚手架是再方便不过了，本人最常用的就是 create-react-app + antd ，但是至于模板中的配置与开发中还是有些不符，所以需要我们自行配置。"></a>搭建 react 项目运用脚手架是再方便不过了，本人最常用的就是 create-react-app + antd ，但是至于模板中的配置与开发中还是有些不符，所以需要我们自行配置。</h5><h3 id="基本使用"><a href="#基本使用" class="headerlink" title="基本使用"></a>基本使用</h3><h4 id="1-下载并安装-yarn，并查看版本"><a href="#1-下载并安装-yarn，并查看版本" class="headerlink" title="1. 下载并安装 yarn，并查看版本"></a>1. 下载并安装 yarn，并查看版本</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"> npm install -g yarn</span><br><span class="line"> yarn --version  </span><br><span class="line">or</span><br><span class="line"> yarn -V</span><br></pre></td></tr></table></figure>
+<h4 id="2-下载并安装-create-react-app"><a href="#2-下载并安装-create-react-app" class="headerlink" title="2. 下载并安装 create-react-app"></a>2. 下载并安装 create-react-app</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install create-react-app -g</span><br></pre></td></tr></table></figure>
+<h4 id="3-创建项目"><a href="#3-创建项目" class="headerlink" title="3. 创建项目"></a>3. 创建项目</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">yarn create react-app myProject</span><br><span class="line">or</span><br><span class="line">create-react-app myProject</span><br></pre></td></tr></table></figure>
+<p>  工具会自动初始化一个脚手架并安装 React 项目的各种必要依赖，然后我们进入项目并启动。<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cd myProject</span><br><span class="line">npm start</span><br><span class="line">or</span><br><span class="line">yarn start</span><br></pre></td></tr></table></figure></p>
+<p>  如果需要暴露出 webpack 的相关文件，可以执行以下代码来暴露出 webpack 的相关文件配置<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm eject</span><br></pre></td></tr></table></figure></p>
+<p>  注意：此方法不可逆；如果执行完成之后启动项目保存，直接执行 yarn install 后，重新启动即可。</p>
+<h4 id="4-现在从-yarn-或-npm-安装并引入-antd"><a href="#4-现在从-yarn-或-npm-安装并引入-antd" class="headerlink" title="4. 现在从 yarn 或 npm 安装并引入 antd"></a>4. 现在从 yarn 或 npm 安装并引入 antd</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">yarn add antd</span><br><span class="line">or</span><br><span class="line">npm install antd --save</span><br></pre></td></tr></table></figure>
+<p>  修改 src/App.js，引入 antd 的按钮组件。<br><figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> React, &#123; Component &#125; <span class="keyword">from</span> <span class="string">'react'</span>;</span><br><span class="line"><span class="keyword">import</span> Button <span class="keyword">from</span> <span class="string">'antd/lib/button'</span>;</span><br><span class="line"><span class="keyword">import</span> <span class="string">'./App.css'</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">App</span> <span class="keyword">extends</span> <span class="title">Component</span> </span>&#123;</span><br><span class="line">  render() &#123;</span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">      &lt;div className=<span class="string">"App"</span>&gt;</span><br><span class="line">        &lt;Button type=<span class="string">"primary"</span>&gt;Button&lt;<span class="regexp">/Button&gt;</span></span><br><span class="line"><span class="regexp">      &lt;/</span>div&gt;</span><br><span class="line">    );</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> App;</span><br></pre></td></tr></table></figure></p>
+<p>  修改 src/App.css，在文件顶部引入 antd/dist/antd.css<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">@<span class="keyword">import</span> <span class="string">'~antd/dist/antd.css'</span>;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.App</span> &#123;</span><br><span class="line">  <span class="attribute">text-align</span>: center;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p> 到目前为止，已经引入 antd UI 组件库成功，并在页面中可看到具有相应样式的 button。</p>
+<p> 但是这样引入属于全局引入 antd 对于前端来说，是非常不明智的选择，这样做会导致前端页面渲染的时间很长，所以要选择按需加载，便需要进行一下的高级配置。</p>
+<h3 id="按需引入组件配置"><a href="#按需引入组件配置" class="headerlink" title="按需引入组件配置"></a>按需引入组件配置</h3><p>引入 react-app-rewired 并修改 package.json 里的启动配置。由于新的 <a href="mailto:react-app-rewired@2.x" target="_blank" rel="noopener">react-app-rewired@2.x</a> 版本的关系，你还需要安装 customize-cra</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yarn add react-app-rewired customize-cra</span><br></pre></td></tr></table></figure>
+<p>修改 package.json 文件<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">/* package.json */</span><br><span class="line">  "scripts": &#123;</span><br><span class="line">  -   "start": "react-scripts start",</span><br><span class="line">  +   "start": "react-app-rewired start",</span><br><span class="line">  -   "build": "react-scripts build",</span><br><span class="line">  +   "build": "react-app-rewired build",</span><br><span class="line">  -   "test": "react-scripts test",</span><br><span class="line">  +   "test": "react-app-rewired test",</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure></p>
+<p>babel-plugin-import 是一个用于按需加载组件代码和样式的 babel 插件（原理），现在我们尝试安装它并修改 config-overrides.js 文件</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yarn add babel-plugin-import</span><br></pre></td></tr></table></figure>
+<p>然后在项目根目录创建一个 config-overrides.js 用于修改默认配置。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> &#123; override, fixBabelImports &#125; = <span class="built_in">require</span>(<span class="string">'customize-cra'</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = override(</span><br><span class="line"> fixBabelImports(<span class="string">'import'</span>, &#123;</span><br><span class="line">   libraryName: <span class="string">'antd'</span>,</span><br><span class="line">   libraryDirectory: <span class="string">'es'</span>,</span><br><span class="line">   style: <span class="string">'css'</span>,</span><br><span class="line"> &#125;),</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<p>然后移除前面在 src/App.css 里全量添加的 @import ‘~antd/dist/antd.css’; 样式代码，并且按下面的格式引入模块。</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">  <span class="keyword">import</span> React, &#123; Component &#125; <span class="keyword">from</span> <span class="string">'react'</span>;</span><br><span class="line">- <span class="keyword">import</span> Button <span class="keyword">from</span> <span class="string">'antd/lib/button'</span>;</span><br><span class="line">+ <span class="keyword">import</span> &#123; Button &#125; <span class="keyword">from</span> <span class="string">'antd'</span>;</span><br><span class="line">  <span class="keyword">import</span> <span class="string">'./App.css'</span>;</span><br><span class="line"></span><br><span class="line">  <span class="class"><span class="keyword">class</span> <span class="title">App</span> <span class="keyword">extends</span> <span class="title">Component</span> </span>&#123;</span><br><span class="line">    render() &#123;</span><br><span class="line">      <span class="keyword">return</span> (</span><br><span class="line">        &lt;div className=<span class="string">"App"</span>&gt;</span><br><span class="line">          &lt;Button type=<span class="string">"primary"</span>&gt;Button&lt;<span class="regexp">/Button&gt;</span></span><br><span class="line"><span class="regexp">        &lt;/</span>div&gt;</span><br><span class="line">      );</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">export</span> <span class="keyword">default</span> App;</span><br></pre></td></tr></table></figure>
+<p>最后重启 yarn start 访问页面，antd 组件的 js 和 css 代码都会按需加载，你在控制台也不会看到这样的警告信息。</p>
+<h3 id="自定义主题配置"><a href="#自定义主题配置" class="headerlink" title="自定义主题配置"></a>自定义主题配置</h3><p>按照 配置主题 的要求，自定义主题需要用到 less 变量覆盖功能。我们可以引入 customize-cra 中提供的 less 相关的函数 addLessLoader 来帮助加载 less 样式，同时修改 config-overrides.js 文件如下。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yarn add less less-loader</span><br></pre></td></tr></table></figure>
+<p>修改 config-overrides.js</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> &#123; override, fixBabelImports, addLessLoader &#125; = <span class="built_in">require</span>(<span class="string">'customize-cra'</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = override(</span><br><span class="line">  fixBabelImports(<span class="string">'import'</span>, &#123;</span><br><span class="line">    libraryName: <span class="string">'antd'</span>,</span><br><span class="line">    libraryDirectory: <span class="string">'es'</span>,</span><br><span class="line">    style: <span class="literal">true</span>,</span><br><span class="line">  &#125;),</span><br><span class="line">  addLessLoader(&#123;</span><br><span class="line">    javascriptEnabled: <span class="literal">true</span>,</span><br><span class="line">    modifyVars: &#123; <span class="string">'@primary-color'</span>: <span class="string">'#1DA57A'</span> &#125;,</span><br><span class="line">  &#125;),</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<p>修改后重启 yarn start，如果看到一个绿色的按钮就说明配置成功了。</p>
+<h3 id="反向代理配置"><a href="#反向代理配置" class="headerlink" title="反向代理配置"></a>反向代理配置</h3><h4 id="1-porxy-配置一个代理"><a href="#1-porxy-配置一个代理" class="headerlink" title="1. porxy 配置一个代理"></a>1. porxy 配置一个代理</h4><p>   修改package.json文件<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">"proxy":"http://teng.com/website/web",</span><br></pre></td></tr></table></figure></p>
+<p>此时，发送请求的url为 ‘/aaa/bbb’,浏览器会自动拼接为 ‘<a href="http://teng.com/website/web/aaa/bbb&#39;" target="_blank" rel="noopener">http://teng.com/website/web/aaa/bbb&#39;</a></p>
+<h4 id="2-proxy配置多个代理"><a href="#2-proxy配置多个代理" class="headerlink" title="2. proxy配置多个代理"></a>2. proxy配置多个代理</h4><p>  注意：若create-react-app 的版本在低于 2.0 的时候可以在 package.json 增加 proxy 配置即可， 配置成如下<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">"proxy":&#123;</span><br><span class="line">  "/api1": &#123;</span><br><span class="line">      "target": "http://teng.com/website/web"</span><br><span class="line">    &#125;,</span><br><span class="line">　"/api2": &#123;</span><br><span class="line">      "target": "http://teng.com/website/web1"</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>但是如果 create-react-app 的版本在高于于 2.0 的时候， 以上配置就会报错：提示只支持string类型,不支持object 即 ： “proxy” in package.json must be a string.</p>
+<h5 id="解决方案："><a href="#解决方案：" class="headerlink" title="解决方案："></a>解决方案：</h5><h6 id="安装-http-proxy-middleware"><a href="#安装-http-proxy-middleware" class="headerlink" title=" 安装  http-proxy-middleware"></a><1> 安装  http-proxy-middleware</1></h6><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">npm install http-proxy-middleware --save</span><br><span class="line">or</span><br><span class="line">yarn add http-proxy-middleware</span><br></pre></td></tr></table></figure>
+<h6 id="在src目录下创建-setupProxy-js-文件，并写入一下代理设置"><a href="#在src目录下创建-setupProxy-js-文件，并写入一下代理设置" class="headerlink" title="在src目录下创建 setupProxy.js 文件，并写入一下代理设置"></a><2>在src目录下创建 setupProxy.js 文件，并写入一下代理设置</2></h6><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> proxy = <span class="built_in">require</span>(<span class="string">'http-proxy-middleware'</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = <span class="function"><span class="keyword">function</span> (<span class="params">app</span>) </span>&#123;</span><br><span class="line">  app.use(proxy(<span class="string">'/api1'</span>, &#123;</span><br><span class="line">    target: <span class="string">'http://teng.com/website/web'</span>,</span><br><span class="line">    secure: <span class="literal">false</span>,</span><br><span class="line">    changeOrigin: <span class="literal">true</span>,</span><br><span class="line">    pathRewrite: &#123;</span><br><span class="line">      <span class="string">"^/api1"</span>: <span class="string">"/"</span></span><br><span class="line">    &#125;,</span><br><span class="line">  &#125;));</span><br><span class="line">  app.use(proxy(<span class="string">'/api2'</span>, &#123;</span><br><span class="line">    target: <span class="string">'http://teng.com/website/web1'</span>,</span><br><span class="line">    secure: <span class="literal">false</span>,</span><br><span class="line">    changeOrigin: <span class="literal">true</span>,</span><br><span class="line">    pathRewrite: &#123;</span><br><span class="line">      <span class="string">"^/api2"</span>: <span class="string">"/"</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;));</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>相关配置可见官网 : <a href="https://facebook.github.io/create-react-app/docs/proxying-api-requests-in-development" target="_blank" rel="noopener">create-react-app 配置官网</a></p>
+<p>此时，发送请求的url为 ‘api1/aaa/bbb’,浏览器会自动拼接为 ‘<a href="http://teng.com/website/web/aaa/bbb&#39;" target="_blank" rel="noopener">http://teng.com/website/web/aaa/bbb&#39;</a></p>
+<h3 id="改变打包时静态文件引入的路径"><a href="#改变打包时静态文件引入的路径" class="headerlink" title="改变打包时静态文件引入的路径"></a>改变打包时静态文件引入的路径</h3><p>项目打包时，要想将引入资源的路径改成相对路径（‘./’），可直接在 package.json 文件中添加以下配置即可<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">"homepage": "."</span><br></pre></td></tr></table></figure></p>
+<h3 id="取消打包生成的-map-文件"><a href="#取消打包生成的-map-文件" class="headerlink" title="取消打包生成的 .map 文件"></a>取消打包生成的 .map 文件</h3><p>引用 antd 后设置按需引入后，在打包的时候会生成很多 .map 文件，所以需要在 config-overrides.js 中插入下边的代码<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">process.env.GENERATE_SOURCEMAP = <span class="string">"false"</span>;</span><br></pre></td></tr></table></figure></p>
+<p>即<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* config-overrides.js */</span></span><br><span class="line"><span class="keyword">const</span> &#123; override, fixBabelImports, addLessLoader &#125; = <span class="built_in">require</span>(<span class="string">"customize-cra"</span>);</span><br><span class="line"></span><br><span class="line">process.env.GENERATE_SOURCEMAP = <span class="string">"false"</span>;</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = override(</span><br><span class="line">  fixBabelImports(<span class="string">"import"</span>, &#123;</span><br><span class="line">    libraryName: <span class="string">'antd'</span>,</span><br><span class="line">    libraryDirectory: <span class="string">"es"</span>,</span><br><span class="line">    style: <span class="literal">true</span>,</span><br><span class="line">  &#125;),</span><br><span class="line">  addLessLoader(&#123;</span><br><span class="line">    javascriptEnabled: <span class="literal">true</span>,</span><br><span class="line">    modifyVars: &#123; <span class="string">'@primary-color'</span>: <span class="string">'#1DA57A'</span> &#125;,</span><br><span class="line">  &#125;)</span><br><span class="line">);</span><br></pre></td></tr></table></figure></p>
+	
+	</div>
+	
+	<div id="current-post-cover" data-scr="/img/categories-bgi/react.jpg"></div>
+
+	<!-- relate post, comment...-->
+	<div class="investment-container">
+		<div class="investment-header">
+			<div class="investment-title-1">
+				<div class="on">相关文章</div>
+				<div>评论</div>
+				<div>分享</div>
+			</div>
+			<div class="investment-title-2">	            
+				
+	<span>
+		<a href="javascript: window.scrollTo(0, 0);">返回顶部</a>
+		
+		
+			<a href="/2019/06/03/浏览器端使用es6 import 语法/" title="浏览器端使用es6 import 语法" rel="next">
+				下一篇&raquo;
+			</a>
+			
+	</span>
+
+
+      		
+			</div>	
+		</div>
+		
+		<div class="investment-content">
+			<div class="investment-content-list">
+				
+
+<div class="relate-post">
+	
+		<ul>
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2019/06/03/浏览器端使用es6 import 语法/" title="浏览器端使用es6 import 语法">
+								浏览器端使用es6 import 语法			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								六月 3日, 2019				
+							</p>
+							<p class="relate-post-content">
+								通常我们会在开发H5页面时，会引用一些外部的js，但是这些 js 很有可能是通过 es6 语法书写并通过 export 或 export default 导出的，可是我们在页面中根本无法通过 script 标签将这样的js导入并使用（...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2019/06/03/浏览器端使用es6 import 语法/" title="浏览器端使用es6 import 语法">				
+								
+								<img class="lazy" src="/img/placeholder.jpg" data-src="/img/categories-bgi/js.jpg" alt="浏览器端使用es6 import 语法">
+							</a>
+						</div>
+					</li>											
+			
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2019/05/20/vue-pdf的使用方法及解决在线打印预览乱码/" title="vue-pdf的使用方法及解决在线打印预览乱码">
+								vue-pdf的使用方法及解决在线打印预览乱码			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								五月 20日, 2019				
+							</p>
+							<p class="relate-post-content">
+								最近在用vue做项目的时候，页面中需要展示后端返回的PDF文件，于是便用到了vue-pdf，其使用方法为 ：1npm install --save vue-pdf
+官网
+不多说了，直接上代码：
+12345678910111213141...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2019/05/20/vue-pdf的使用方法及解决在线打印预览乱码/" title="vue-pdf的使用方法及解决在线打印预览乱码">				
+								
+								<img class="lazy" src="/img/placeholder.jpg" data-src="/img/categories-bgi/vue.jpg" alt="vue-pdf的使用方法及解决在线打印预览乱码">
+							</a>
+						</div>
+					</li>											
+			
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2019/05/06/nodejs脚手架express-generator/" title="nodejs脚手架express-generator">
+								nodejs脚手架express-generator			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								五月 6日, 2019				
+							</p>
+							<p class="relate-post-content">
+								1.安装生成器1npm install express-generator -g
+2. 创建名称为APP的应用：1express my-project
+3.安装依赖包123cd my-projectnpm install
+4、启动应用...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2019/05/06/nodejs脚手架express-generator/" title="nodejs脚手架express-generator">				
+								
+								<img class="lazy" src="/img/placeholder.jpg" data-src="/img/categories-bgi/node.jpg" alt="nodejs脚手架express-generator">
+							</a>
+						</div>
+					</li>											
+			
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2019/04/20/ts中类的继承/" title="ts中类的继承">
+								ts中类的继承			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								四月 20日, 2019				
+							</p>
+							<p class="relate-post-content">
+								定义类1234567891011class Person &#123;    name: string;   //属性    constructor(_name: string) &#123;        this.name = _...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2019/04/20/ts中类的继承/" title="ts中类的继承">				
+								
+								<img class="lazy" src="/img/placeholder.jpg" data-src="/img/categories-bgi/ts.jpg" alt="ts中类的继承">
+							</a>
+						</div>
+					</li>											
+			
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2019/04/18/vue-cli3+typescript+router/" title="vue-cli3+typescript+router">
+								vue-cli3+typescript+router			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								四月 18日, 2019				
+							</p>
+							<p class="relate-post-content">
+								vue基于类的写法，和基于对象的写法并不一致。使用vue-cli3创建的项目，src目录下的文件结构并没有多大区别，store、router、app、view、components、aeests该有的还是有的。但是，多了一个东西：vu...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2019/04/18/vue-cli3+typescript+router/" title="vue-cli3+typescript+router">				
+								
+								<img class="lazy" src="/img/placeholder.jpg" data-src="/img/categories-bgi/vue.jpg" alt="vue-cli3+typescript+router">
+							</a>
+						</div>
+					</li>											
+			
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2019/03/12/完美解决ios10及以上Safari无法禁止缩放的问题/" title="完美解决ios10及以上Safari无法禁止缩放的问题">
+								完美解决ios10及以上Safari无法禁止缩放的问题			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								三月 12日, 2019				
+							</p>
+							<p class="relate-post-content">
+								移动端web缩放有两种：
+1.双击缩放；
+2.双指手势缩放。
+在iOS 10以前，iOS和Android都可以通过一行meta标签来禁止页面缩放
+1&lt;meta content="width=device-width, initi...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2019/03/12/完美解决ios10及以上Safari无法禁止缩放的问题/" title="完美解决ios10及以上Safari无法禁止缩放的问题">				
+								
+								<img class="lazy" src="/img/placeholder.jpg" data-src="/img/categories-bgi/js.jpg" alt="完美解决ios10及以上Safari无法禁止缩放的问题">
+							</a>
+						</div>
+					</li>											
+			
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2019/03/08/微信小程序video组件出现无法播放或卡顿/" title="微信小程序video组件出现无法播放或卡顿">
+								微信小程序video组件出现无法播放或卡顿			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								三月 8日, 2019				
+							</p>
+							<p class="relate-post-content">
+								微信小程序使用video组件播放视频的时候，会出现卡顿或者无法播放的问题，加一个custom-cache=”true“即可解决，这个属性文档上没有，是从小程序开发社区中get到的。
+
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2019/03/08/微信小程序video组件出现无法播放或卡顿/" title="微信小程序video组件出现无法播放或卡顿">				
+								
+								<img class="lazy" src="/img/placeholder.jpg" data-src="/img/categories-bgi/wechat.jpg" alt="微信小程序video组件出现无法播放或卡顿">
+							</a>
+						</div>
+					</li>											
+			
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2019/03/05/小程序父子组件通信-传值/" title="小程序父子组件通信-传值">
+								小程序父子组件通信-传值			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								三月 5日, 2019				
+							</p>
+							<p class="relate-post-content">
+								父组件中default-value为传递给子组件的值12345&lt;x-picker-date id="picker-date" default-value="&#123;&#123;newTime&#125;&#125;" wx:...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2019/03/05/小程序父子组件通信-传值/" title="小程序父子组件通信-传值">				
+								
+								<img class="lazy" src="/img/placeholder.jpg" data-src="/img/categories-bgi/wechat.jpg" alt="小程序父子组件通信-传值">
+							</a>
+						</div>
+					</li>											
+			
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2019/02/20/微信小程序自定义组件的使用以及调用自定义组件中的方法/" title="微信小程序自定义组件的使用以及调用自定义组件中的方法">
+								微信小程序自定义组件的使用以及调用自定义组件中的方法			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								二月 20日, 2019				
+							</p>
+							<p class="relate-post-content">
+								在写小程序的时候，有时候页面的内容过多，逻辑比较复杂，如果全部都写在一个页面的话，会比较繁杂，代码可读性比较差，也不易于后期代码维护，这时候可以把里面某部分功能抽出来，单独封装为一个组件，也就是通常说的自定义组件，自定义组件类似于页面...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2019/02/20/微信小程序自定义组件的使用以及调用自定义组件中的方法/" title="微信小程序自定义组件的使用以及调用自定义组件中的方法">				
+								
+								<img class="lazy" src="/img/placeholder.jpg" data-src="/img/categories-bgi/wechat.jpg" alt="微信小程序自定义组件的使用以及调用自定义组件中的方法">
+							</a>
+						</div>
+					</li>											
+			
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2019/01/18/在vue中使用less/" title="在vue中使用less">
+								在vue中使用less			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								一月 18日, 2019				
+							</p>
+							<p class="relate-post-content">
+								第一步：安装 less 和less-loader1npm install less less-loader --save
+第二步：配置webpack.base.config.js文件　　修改webpack.base.config.js...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2019/01/18/在vue中使用less/" title="在vue中使用less">				
+								
+								<img class="lazy" src="/img/placeholder.jpg" data-src="/img/categories-bgi/vue.jpg" alt="在vue中使用less">
+							</a>
+						</div>
+					</li>											
+			
+			
+		</ul>
+	
+</div>	
+			</div>
+			<div class="investment-content-list">
+				<div class="layout-comment">
+
+	
+
+		
+
+			<!-- I don't know !!!-->
+			<div>Please check the comment setting in config.yml of hexo-theme-Annie!</div>
+			
+		
+		
+	
+
+</div>
+			</div>
+			<div class="investment-content-list">
+				<div class="layout-share">
+	
+	
+
+		
+			
+			<!-- socialShare share -->
+			<div class="social-share"></div>
+
+<!--  css & js -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css">
+<script async src="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script>
+			
+		
+		
+	
+</div>
+
+
+			</div>
+		</div>	
+	</div>
+	</div>
+</div>
+
+
+
+	<!-- leancloud -->
+	<!--
+	时间：2018-11-27
+	描述：
+		文章访问量：visitors
+		文章喜欢量：likes	
+		文章排行榜：topNPost
+		其他得说明：
+			01-Cookie相关的函数 
+				https://blog.csdn.net/somehow1002/article/details/78511541（Author：somehow1002）
+			02-visitors相关的函数 
+				https://blog.csdn.net/u013553529/article/details/63357382（Author：爱博客大伯）
+				https://notes.doublemine.me/2015-10-21-为NexT主题添加文章阅读量统计功能.html（Author：夏末）
+			03-topNPost相关的函数
+				https://hoxis.github.io/hexo-next-read-rank.html（Author：hoxis）
+			04-likes相关的函数，
+				参考了01 & 02进行简单的设计与实现
+-->
+
+
+	
+
+
+<!-- show math formula -->
+
+
+
+	 
+	<script src="/plugin/clipboard/clipboard.js"></script>
+	<script>
+		// Copy code !
+	    function codePreprocessing() {
+	        $("#article-content .highlight").each(function() {
+
+	            $(this).wrap('<div id="post-code"></div>');
+
+	        })
+
+	        $("#article-content #post-code").each(function() {
+
+	            $(this).prepend('<nav class="copy-nav"><span><i class="code-language"></i></span></nav>');
+
+	        })
+
+	        $("#article-content .copy-nav").each(function() {
+	            var temp = $(this).next().attr('class'),
+	                language = ((temp.length > 9) && (temp != null)) ? temp.substr(10) : "none"; //why 9? Need to check language?
+
+	            $(this).find('.code-language').text(language);
+
+	            $(this).append('<span class="copy-btn"><i class="fa fa-copy" aria-hidden="true"></i></span>');
+
+	        });
+	    }
+
+		function codeCopy() {
+		    $('#article-content #post-code').each(function(i) {
+		        var codeCopyId = 'codeCopy-' + i;
+
+		        var codeNode = $(this).find('.code'),
+		            copyButton = $(this).find('.copy-btn');
+
+		        codeNode.attr('id', codeCopyId);
+		        copyButton.attr('data-clipboard-target-id', codeCopyId);
+		    })
+
+		    
+			var clipboard = new ClipboardJS('.copy-btn', {
+					target: function(trigger) {
+						return document.getElementById(trigger.getAttribute('data-clipboard-target-id'));
+					}
+		      	});
+
+			//pure js
+			function showTooltip(elem, msg) {		   
+				elem.setAttribute('aria-label', msg);
+				elem.setAttribute('class', 'copy-btn copy-status');
+				setTimeout(function() {
+					elem.setAttribute('class', 'copy-btn');
+				}, 2000);
+			}
+
+			clipboard.on('success', function(e) {
+			    e.clearSelection();
+			    console.info('Action:', e.action);		   
+			    console.info('Trigger:', e.trigger);
+			    showTooltip(e.trigger, 'Copied!');
+			    
+			});
+			clipboard.on('error', function(e) {
+			    console.error('Action:', e.action);
+			    console.error('Trigger:', e.trigger);
+			});
+		
+
+		}
+
+		if ($('.layout-post').length) {
+		    codePreprocessing();
+		    codeCopy();
+		} 
+	</script>
+
+
+
+
+
+<link rel="stylesheet" href="/plugin/fancybox/jquery.fancybox.css">
+<script src="/plugin/fancybox/jquery.fancybox.js"></script>
+
+<script type="text/javascript">
+	var titleID = $('.article-title a'),
+		imageID = $('.article-content img'),
+		videoID = $('.article-content video');
+
+	var postTitle = titleID.text() ? titleID.text() : "No post title!";
+
+	imageID.each(function() {
+		var imgPath = $(this).attr('src'),
+			imgTitle = $(this).attr('alt') ? $(this).attr('alt') : "No image description!";
+
+		//给每个匹配的<img>元素打包, 即添加父元素<a>
+		$(this).wrap('<a data-fancybox="gallery" data-caption=" 《 ' + postTitle + ' 》 ' + imgTitle + ' "  href=" ' + imgPath + ' "> </a>');
+	});
+
+	videoID.each(function() {
+		var videoPath = $(this).attr('src');
+
+		//给每个匹配的<img>元素打包, 即添加父元素<a>
+		$(this).wrap('<a data-fancybox href=" ' + videoPath + ' "> </a>');
+	});
+	//TODO：支持html5 video
+
+	if($('#layout-post').length) {
+		$('[data-fancybox="gallery"]').fancybox({
+			loop: true,
+			buttons: [
+				"zoom",
+				"share",
+				"slideShow",
+				"fullScreen",
+				//"download",
+				"thumbs",
+				"close"
+			],
+			protect: false
+		});
+	}
+</script>
+		</main>
+
+		<!--footer-->
+		<footer>
+	<div class="social">
+		<ul>
+	
+		<li>
+			<a href="http://github.com/" target="_blank">
+				<i class="fa fa-github"></i>
+			</a>
+		</li>
+	
+		<li>
+			<a href="http://github.com/" target="_blank">
+				<i class="fa fa-weibo"></i>
+			</a>
+		</li>
+	
+		<li>
+			<a href="http://github.com/" target="_blank">
+				<i class="fa fa-pinterest"></i>
+			</a>
+		</li>
+	
+		<li>
+			<a href="http://github.com/" target="_blank">
+				<i class="fa fa-instagram"></i>
+			</a>
+		</li>
+	
+		<li>
+			<a href="http://github.com/" target="_blank">
+				<i class="fa fa-twitter"></i>
+			</a>
+		</li>
+	
+		<li>
+			<a href="/atom.xml" target="_blank">
+				<i class="fa fa-rss"></i>
+			</a>
+		</li>
+			
+</ul>
+
+	</div>
+		
+	<div class="copyright">
+		<p>
+			 
+				&copy;2017 - 2019, content by Mr. Meng. All Rights Reserved.
+			
+			
+			
+
+	<!-- busuanzi -->
+	<!-- busuanzi -->
+
+		
+	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+	
+
+		<span id="busuanzi_container_page_pv">
+	  		本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+		</span>
+
+	
+
+
+
+
+		</p>
+		<p>
+			<a href="http://hexo.io/" title="Hexo" target="_blank" rel="noopener">Hexo</a> Theme <a href="https://github.com/Sariay/hexo-theme-Annie" title="Annie" target="_blank" rel="noopener">Annie</a> by Sariay.
+			<a href="javascript:zh_tran('s');" class="zh_click" id="zh_click_s">简体</a> 
+			<a href="javascript:zh_tran('t');" class="zh_click" id="zh_click_t">繁體</a>				
+		</p>
+	</div>		
+</footer>
+		
+	<!-- set '1' to show motto in all pages! -->
+
+	<script src="/plugin/motto/motto.js"></script>
+	
+	<script type="text/javascript">
+		$(".motto").html( getMingYanContent() );
+	</script>	
+
+
+
+
+
+<!-- love effect -->
+
+	<script src="/plugin/love/love.js"></script>
+
+
+<!-- back to top -->
+
+	
+	<div id="totop">
+  		<a href="javascript:;" name="TOTOP" class="fa fa-arrow-up"></a>
+	</div>
+
+
+
+
+<!-- site analysis -->
+
+
+	<!-- site-analysis -->
+	
+	
+	
+	
+	
+ 
+
+<script src="/plugin/vibrant/vibrant.js"></script>
+<script src="/plugin/chinese/chinese.js"></script>
+<script src="/plugin/imgLazyLoader/yall.min.js"></script>
+<script src="/plugin/imgResize/jquery.resizeimagetoparent.min.js"></script>
+<script src="/plugin/nicescroll/jquery.nicescroll.js"></script>
+<script src="/js/resizediv.js"></script>
+<script src="/js/main.js"></script>
+	</body>	
+</html>

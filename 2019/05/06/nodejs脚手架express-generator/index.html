@@ -303,7 +303,7 @@
 
 	<a href="/2019/05/06/nodejs脚手架express-generator/" itemprop="url">
 		<time datetime="2019-05-06T07:48:10.000Z" itemprop="dateUpdated">
-	  		2019-05-28
+	  		2019-06-17
 	  </time>
 	</a> 
 
@@ -336,7 +336,8 @@
 <p>更改端口：</p>
 <p>　　路径：app/bin/www</p>
 <p>　　var port = normalizePort(process.env.PORT || ‘3000’);</p>
-<p>注：该模板默认用的是 .jade 文件作为模板渲染 若要使用 ejs 可按照一下方法配置</p>
+<h4 id="6、增加请求跨域头"><a href="#6、增加请求跨域头" class="headerlink" title="6、增加请求跨域头"></a>6、增加请求跨域头</h4><p>在app.js中增加以下代码<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// app.js</span></span><br><span class="line">app.all(<span class="string">'*'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">req, res, next</span>) </span>&#123;</span><br><span class="line">  res.header(<span class="string">"Access-Control-Allow-Origin"</span>, <span class="string">"http://localhost:3000"</span>);</span><br><span class="line">  res.header(<span class="string">"Access-Control-Allow-Origin"</span>, <span class="string">"http://localhost:8080"</span>);</span><br><span class="line">  res.header(<span class="string">"Access-Control-Allow-Origin"</span>, <span class="string">"http://127.0.0.1:8080"</span>);</span><br><span class="line">  <span class="comment">// res.header("Access-Control-Allow-Origin", "*");</span></span><br><span class="line">  res.header(<span class="string">"Access-Control-Allow-Headers"</span>, <span class="string">"X-Requested-With,Content-Type"</span>);</span><br><span class="line">  res.header(<span class="string">"Access-Control-Allow-Methods"</span>,<span class="string">"PUT,POST,GET,DELETE,OPTIONS"</span>);</span><br><span class="line">  next();</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<h4 id="7、更换模板文件"><a href="#7、更换模板文件" class="headerlink" title="7、更换模板文件"></a>7、更换模板文件</h4><p>该模板默认用的是 .jade 文件作为模板渲染 若要使用 ejs 可按照一下方法配置</p>
 <p>1、安装 ejs<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install ejs -S</span><br></pre></td></tr></table></figure></p>
 <p>2、在app.js中添加一下代码<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var ejs = require('ejs');</span><br><span class="line">app.engine('.html', ejs.__express);</span><br><span class="line">app.set('view engine', 'html');</span><br></pre></td></tr></table></figure></p>
 <p>3、将view文件夹中的模板替换成  .html 文件即可（每次配置一个路由需要重新启动一下服务器）</p>

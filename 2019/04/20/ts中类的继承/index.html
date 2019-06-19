@@ -303,7 +303,7 @@
 
 	<a href="/2019/04/20/ts中类的继承/" itemprop="url">
 		<time datetime="2019-04-20T07:18:28.000Z" itemprop="dateUpdated">
-	  		2019-05-28
+	  		2019-06-19
 	  </time>
 	</a> 
 
@@ -339,12 +339,12 @@
 </li>
 </ul>
 <ul>
-<li>protected（protected和private相似，但protected成员可以在派生类中访问（能被继承，但不能在实例中访问，若构造函数是protected，则不能被实例化，只能被继承）） </li>
-</ul>
+<li><p>protected（protected和private相似，但protected成员可以在派生类中访问（能被继承，但不能在实例中访问，若构造函数是protected，则不能被实例化，只能被继承）） </p>
 <figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> Person &#123;</span><br><span class="line">    <span class="keyword">protected</span> name: <span class="built_in">string</span>;   </span><br><span class="line">    <span class="keyword">protected</span> <span class="keyword">constructor</span>(<span class="params">_name: <span class="built_in">string</span></span>) &#123;</span><br><span class="line">        <span class="keyword">this</span>.name = _name;</span><br><span class="line">    &#125;   </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> Employee <span class="keyword">extends</span> Person &#123;</span><br><span class="line">    <span class="keyword">private</span> department: <span class="built_in">string</span>;   </span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">constructor</span>(<span class="params">name: <span class="built_in">string</span>,department:<span class="built_in">string</span></span>) &#123;</span><br><span class="line">        <span class="keyword">super</span>(name);</span><br><span class="line">        <span class="keyword">this</span>.department = department;</span><br><span class="line">    &#125;   </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> Bob = <span class="keyword">new</span> Person;   <span class="comment">//error: Constructor of class 'Person' is protected</span></span><br><span class="line"><span class="keyword">let</span> fred = <span class="keyword">new</span> Employee(<span class="string">"fred"</span>,<span class="string">"test"</span>);</span><br><span class="line"><span class="built_in">console</span>.log(fred.name)  <span class="comment">//error: Property 'name' is protected</span></span><br></pre></td></tr></table></figure>
 <ul>
-<li><p>readonly（设置属性为只读，必须在声明时或构造函数里初始化） </p>
-<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"> <span class="keyword">class</span> Person &#123;</span><br><span class="line">    readonly name: <span class="built_in">string</span>;   </span><br><span class="line">    <span class="keyword">constructor</span>(<span class="params">_name: <span class="built_in">string</span></span>) &#123;</span><br><span class="line">        <span class="keyword">this</span>.name = _name;</span><br><span class="line">    &#125;   </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> fred = <span class="keyword">new</span> Person(<span class="string">"fred"</span>);</span><br><span class="line">fred.name = <span class="string">"Bob"</span>   <span class="comment">//error: Cannot assign to 'name' because it is a constant or a read-only property.</span></span><br></pre></td></tr></table></figure>
+<li>readonly（设置属性为只读，必须在声明时或构造函数里初始化） <figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"> <span class="keyword">class</span> Person &#123;</span><br><span class="line">    readonly name: <span class="built_in">string</span>;   </span><br><span class="line">    <span class="keyword">constructor</span>(<span class="params">_name: <span class="built_in">string</span></span>) &#123;</span><br><span class="line">        <span class="keyword">this</span>.name = _name;</span><br><span class="line">    &#125;   </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> fred = <span class="keyword">new</span> Person(<span class="string">"fred"</span>);</span><br><span class="line">fred.name = <span class="string">"Bob"</span>   <span class="comment">//error: Cannot assign to 'name' because it is a constant or a read-only property.</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
 <ol>
 <li><p>参数属性（参数属性通过给构造函数参数添加一个访问限定符来声明（public,private,protected）,把声明和赋值合并至一处）</p>
 <figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> Person &#123;</span><br><span class="line">    <span class="keyword">constructor</span>(<span class="params"><span class="keyword">private</span> name: <span class="built_in">string</span></span>) &#123; &#125;</span><br><span class="line">    sayHello(): <span class="built_in">void</span> &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">`my name is <span class="subst">$&#123;this.name&#125;</span>`</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> fred = <span class="keyword">new</span> Person(<span class="string">"fred"</span>);</span><br><span class="line">fred.sayHello() <span class="comment">//my name is fred</span></span><br></pre></td></tr></table></figure>
@@ -401,6 +401,31 @@
 <div class="relate-post">
 	
 		<ul>
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2019/06/19/H5软键盘兼容方案/" title="H5软键盘兼容方案">
+								H5软键盘兼容方案			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								六月 19日, 2019				
+							</p>
+							<p class="relate-post-content">
+								前言最近一段时间在做 H5 聊天项目，踩过其中一大坑：输入框获取焦点，软键盘弹起，要求输入框吸附（或顶）在输入法框上。需求很明确，看似很简单，其实不然。从实验过一些机型上看，发现主要存在以下问题：
+
+在 Android 和 IOS 上...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2019/06/19/H5软键盘兼容方案/" title="H5软键盘兼容方案">				
+								
+								<img class="lazy" src="/img/placeholder.jpg" data-src="/img/categories-bgi/js.jpg" alt="H5软键盘兼容方案">
+							</a>
+						</div>
+					</li>											
+			
 			
 					<li>
 						<div class="relate-post-text">
@@ -615,30 +640,6 @@
 							<a href="/2019/02/20/微信小程序自定义组件的使用以及调用自定义组件中的方法/" title="微信小程序自定义组件的使用以及调用自定义组件中的方法">				
 								
 								<img class="lazy" src="/img/placeholder.jpg" data-src="/img/categories-bgi/wechat.jpg" alt="微信小程序自定义组件的使用以及调用自定义组件中的方法">
-							</a>
-						</div>
-					</li>											
-			
-			
-					<li>
-						<div class="relate-post-text">
-							<a class="relate-post-title" href="/2019/01/18/在vue中使用less/" title="在vue中使用less">
-								在vue中使用less			
-							</a>
-							<p class="relate-post-date">
-								<i class="fa fa-calendar"></i>
-								一月 18日, 2019				
-							</p>
-							<p class="relate-post-content">
-								第一步：安装 less 和less-loader1npm install less less-loader --save
-第二步：配置webpack.base.config.js文件　　修改webpack.base.config.js...
-							</p>
-						</div>
-
-						<div class="relate-post-cover">
-							<a href="/2019/01/18/在vue中使用less/" title="在vue中使用less">				
-								
-								<img class="lazy" src="/img/placeholder.jpg" data-src="/img/categories-bgi/vue.jpg" alt="在vue中使用less">
 							</a>
 						</div>
 					</li>											

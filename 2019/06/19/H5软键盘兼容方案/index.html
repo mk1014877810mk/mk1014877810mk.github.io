@@ -1,0 +1,975 @@
+<!--
+	作者：Sariay
+	时间：2018-09-25
+	描述：There may be a bug, but don't worry, QiLing(器灵) says that it can work normally!
+-->
+<!DOCTYPE html>
+<html class="html-loading">
+		
+
+<head><meta name="generator" content="Hexo 3.8.0">
+	<meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+  <title>
+    
+      H5软键盘兼容方案 | Mr. Meng&#39;s blogs
+    
+  </title>
+  <meta name="author" content="Mr. Meng">
+  <meta name="keywords" content>
+  <meta name="description" content>
+	<!-- favicon -->
+  <link rel="shortcut icon" href="/img/favicon.ico">
+
+  <!-- css -->
+  <link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="/css/Annie.css">
+  
+  <!-- jquery -->
+	<script src="/js/jquery.min.js"></script>
+
+  <!-- leancloud -->
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+<script src="/js/leancloud.js"></script>
+</head>
+	<body>
+		<!-- Preloader -->
+
+	<div id="preloader">
+		<div class="pre-container">
+			
+				<div class="spinner">
+					<div class="double-bounce1"></div>
+					<div class="double-bounce2"></div>
+				</div>
+						
+		</div>
+	</div>
+
+
+<!-- header -->
+<header class="fixbackground" data-img-mode="normal" data-normal-src="https://source.unsplash.com/collection/954550/1920x1080" data-random-max="110" data-random-src="https://sariay.github.io/Random-img/">
+	<div class="mask">
+		<!-- Logo and navigation -->
+		<div class="h-header">
+			<div id="logo">
+				<a href="/">
+						
+						<img src="/img/logo.png" alt="Logo">
+					
+				</a>
+			</div>
+			
+			<div id="navigation-show">
+				<ul>
+	
+		<li class="menu-home">
+			<a href="/" class="menu-item-home">主页</a>
+		</li>
+	
+		<li class="menu-archive">
+			<a href="/archives" class="menu-item-archive">归档</a>
+		</li>
+	
+		<li class="menu-categories">
+			<a href="/categories" class="menu-item-categories">分类</a>
+		</li>
+	
+		<li class="menu-tags">
+			<a href="/tags" class="menu-item-tags">标签</a>
+		</li>
+	
+		<li class="menu-about">
+			<a href="/about" class="menu-item-about">关于</a>
+		</li>
+	
+
+	
+</ul>
+			</div>				
+		</div>
+
+		<!-- motto -->
+		<div class="h-body">	
+			
+				<p class="motto"></p>
+			
+		</div>
+		
+		<!-- others: such as time... -->			
+		<div class="h-footer">
+			<a href="javascript:;" id="read-more"><i class="fa fa-angle-double-down" aria-hidden="true"></i>
+			</a>
+
+			
+				<!-- 
+	This is only a demo, please go to "https://time.is" to set your city time! 
+-->
+<style type="text/css">
+	.header-date {
+		font-size: 1.6rem;
+		color: #fff;
+		position: absolute;
+		bottom: 5px;
+		right: 1rem;
+		writing-mode: tb-rl;
+	}	
+	
+	.header-date a {
+		border-bottom: none;
+	}
+
+	@media only screen and (max-width: 768 ) {
+		.header-date {
+			font-size: 1rem;
+		}			
+	}
+</style>
+<div class="header-date">
+	<a href="https://time.is/Beijing" id="time_is_link" rel="nofollow"></a>
+	<span id="Beijing_z43d"></span>
+</div>
+<script src="//widget.time.is/zh.js"></script>
+<script>
+	time_is_widget.init({
+		Beijing_z43d:{
+			template:"DATE", 
+			date_format:"year年 monthname dnum日"
+		}
+	});
+</script>
+			
+		</div>
+	</div>
+</header>
+
+<div id="navigation-hide">
+	<!-- Progress bar -->
+	<div id="progress-bar"></div>
+
+	<!-- Progress percent -->
+	<div id="progress-percentage"><h1>0.0%</h1></div>
+
+	<div class="toc-switch"><span class="switch-button">目录</span></div>
+
+	<!-- Page title -->
+	<p>
+		
+			当前文章&nbsp;:&nbsp;《H5软键盘兼容方案》
+		
+	</p>
+
+	<!-- Nav trigger for navigation-H-->
+	<a class="nav-trigger"><span></span></a>
+</div>
+
+<!-- Navigation in div(id="navigation-H") -->
+<nav class="nav-container" id="cd-nav">
+	<div class="nav-header">
+		<h3>Navigation</h3>
+		<a href="javascript:;" class="nav-close"></a>
+	</div>
+	<div class="nav-body">
+		<ul>
+	
+		<li class="menu-home">
+			<a href="/" class="menu-item-home">主页</a>
+		</li>
+	
+		<li class="menu-archive">
+			<a href="/archives" class="menu-item-archive">归档</a>
+		</li>
+	
+		<li class="menu-categories">
+			<a href="/categories" class="menu-item-categories">分类</a>
+		</li>
+	
+		<li class="menu-tags">
+			<a href="/tags" class="menu-item-tags">标签</a>
+		</li>
+	
+		<li class="menu-about">
+			<a href="/about" class="menu-item-about">关于</a>
+		</li>
+	
+
+	
+</ul>
+	</div>
+	<div class="nav-footer">
+		<ul>
+	
+		<li>
+			<a href="http://github.com/" target="_blank">
+				<i class="fa fa-github"></i>
+			</a>
+		</li>
+	
+		<li>
+			<a href="http://github.com/" target="_blank">
+				<i class="fa fa-weibo"></i>
+			</a>
+		</li>
+	
+		<li>
+			<a href="http://github.com/" target="_blank">
+				<i class="fa fa-pinterest"></i>
+			</a>
+		</li>
+	
+		<li>
+			<a href="http://github.com/" target="_blank">
+				<i class="fa fa-instagram"></i>
+			</a>
+		</li>
+	
+		<li>
+			<a href="http://github.com/" target="_blank">
+				<i class="fa fa-twitter"></i>
+			</a>
+		</li>
+	
+		<li>
+			<a href="/atom.xml" target="_blank">
+				<i class="fa fa-rss"></i>
+			</a>
+		</li>
+			
+</ul>
+
+	</div>
+</nav>
+			
+		<!--main-->
+		<main>
+			<!--
+	时间：2018-11-17
+	描述：
+		插件名称：katelog.min.js
+		插件作者：KELEN
+		插件来源: https://github.com/KELEN/katelog
+-->
+
+	
+		<div class="layout-toc">
+			<div id="layout-toc">
+				<div class="k-catelog-list" id="catelog-list" data-title="文章目录"></div>
+			</div>
+		</div>
+
+		
+		<script src="/plugin/toc/katelog.min.js"></script>
+
+		
+	 
+
+<div class="layout-post">
+	<div id="layout-post">
+	<div class="article-title">
+		<i class="fa fa-paper-plane-o" aria-hidden="true"></i>
+		
+	<a href="/2019/06/19/H5软键盘兼容方案/" itemprop="url">
+		H5软键盘兼容方案
+	</a>
+
+	</div>
+
+	<div class="article-meta">
+		<span>
+			<i class="fa fa-calendar"></i>
+			
+
+
+	发布于
+
+	<a href="/2019/06/19/H5软键盘兼容方案/" itemprop="url">
+		<time datetime="2019-06-19T02:09:10.000Z" itemprop="datePublished">
+	  		2019-06-19
+	  </time>
+	</a>
+	&nbsp;
+
+
+
+
+
+			
+
+
+
+
+	更新于
+
+	<a href="/2019/06/19/H5软键盘兼容方案/" itemprop="url">
+		<time datetime="2019-06-19T02:09:10.000Z" itemprop="dateUpdated">
+	  		2019-06-19
+	  </time>
+	</a> 
+
+
+
+		</span>
+		<span>
+			<i class="fa fa-tags"></i>
+			
+	
+		<a href="/tags/H5软键盘兼容方案/" class=" ">
+			H5软键盘兼容方案
+		</a>
+	
+		
+		</span>
+		
+		
+
+
+
+	</div>
+
+	<div class="article-content" id="article-content">
+		<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>最近一段时间在做 H5 聊天项目，踩过其中一大坑：输入框获取焦点，软键盘弹起，要求输入框吸附（或顶）在输入法框上。需求很明确，看似很简单，其实不然。从实验过一些机型上看，发现主要存在以下问题：</p>
+<ul>
+<li>在 Android 和 IOS 上，获知软键盘弹起和收起状态存在差异，且页面 webview 表现不同。</li>
+<li>在IOS12 上，微信版本 v6.7.4 及以上，输入框获取焦点，键盘弹起，页面（webview）整体往上滚动，当键盘收起后，不回到原位，导致键盘原来所在位置是空白的。</li>
+<li>在 IOS 上，使用第三方输入法，高度计算存在偏差，导致在有些输入法弹起，将输入框挡住一部分。</li>
+<li>在有些浏览器上使用一些操作技巧，还是存在输入框被输入法遮挡。</li>
+</ul>
+<p>下面就上述发现的问题，逐个探索一下解决方案。</p>
+<h2 id="获知软键盘弹起和收起状态"><a href="#获知软键盘弹起和收起状态" class="headerlink" title="获知软键盘弹起和收起状态"></a>获知软键盘弹起和收起状态</h2><p>获知软键盘的弹起还是收起状态很重要，后面的兼容处理都要以此为前提。然而，H5 并没有直接监听软键盘的原生事件，只能通过软键盘弹起或收起，引发页面其他方面的表现间接监听，曲线救国。并且，在 IOS 和 Android 上的表现不尽相同。</p>
+<h4 id="IOS-软键盘弹起表现"><a href="#IOS-软键盘弹起表现" class="headerlink" title="IOS 软键盘弹起表现"></a>IOS 软键盘弹起表现</h4><p>在 IOS 上，输入框（input、textarea 或 富文本）获取焦点，键盘弹起，页面（webview）并没有被压缩，或者说高度（height）没有改变，只是页面（webview）整体往上滚了，且最大滚动高度（scrollTop）为软键盘高度。</p>
+<h4 id="Android-软键盘弹起表现"><a href="#Android-软键盘弹起表现" class="headerlink" title="Android 软键盘弹起表现"></a>Android 软键盘弹起表现</h4><p>同样，在 Android 上，输入框获取焦点，键盘弹起，但是页面（webview）高度会发生改变，一般来说，高度为可视区高度（原高度减去软键盘高度），除了因为页面内容被撑开可以产生滚动，webview 本身不能滚动。</p>
+<h4 id="IOS-软键盘收起表现"><a href="#IOS-软键盘收起表现" class="headerlink" title="IOS 软键盘收起表现"></a>IOS 软键盘收起表现</h4><p>触发软键盘上的“收起”按钮键盘或者输入框以外的页面区域时，输入框失去焦点，软键盘收起。</p>
+<h4 id="Android-软键盘收起表现"><a href="#Android-软键盘收起表现" class="headerlink" title="Android 软键盘收起表现"></a>Android 软键盘收起表现</h4><p>触发输入框以外的区域时，输入框失去焦点，软键盘收起。但是，触发键盘上的收起按钮键盘时，输入框并不会失去焦点，同样软键盘收起。</p>
+<p><img src="/content-images/keyboard1.jpg" style="width:100%;"></p>
+<h4 id="监听软键盘弹起和收起"><a href="#监听软键盘弹起和收起" class="headerlink" title="监听软键盘弹起和收起"></a>监听软键盘弹起和收起</h4><p>综合上面键盘弹起和收起在 IOS 和 Android 上的不同表现，我们可以分开进行如下处理来监听软键盘的弹起和收起：</p>
+<ul>
+<li>在 IOS 上，监听输入框的 focus 事件来获知软键盘弹起，监听输入框的 blur 事件获知软键盘收起。</li>
+<li>在 Android 上，监听 webview 高度会变化，高度变小获知软键盘弹起，否则软键盘收起。 </li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 判断设备类型</span></span><br><span class="line"><span class="keyword">var</span> judgeDeviceType = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> ua = <span class="built_in">window</span>.navigator.userAgent.toLocaleLowerCase();</span><br><span class="line">  <span class="keyword">var</span> isIOS = <span class="regexp">/iphone|ipad|ipod/</span>.test(ua);</span><br><span class="line">  <span class="keyword">var</span> isAndroid = <span class="regexp">/android/</span>.test(ua);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> &#123;</span><br><span class="line">    isIOS: isIOS,</span><br><span class="line">    isAndroid: isAndroid</span><br><span class="line">  &#125;</span><br><span class="line">&#125;()</span><br><span class="line"></span><br><span class="line"><span class="comment">// 监听输入框的软键盘弹起和收起事件</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">listenKeybord</span>(<span class="params">$input</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (judgeDeviceType.isIOS) &#123;</span><br><span class="line">    <span class="comment">// IOS 键盘弹起：IOS 和 Android 输入框获取焦点键盘弹起</span></span><br><span class="line">    $input.addEventListener(<span class="string">'focus'</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">'IOS 键盘弹起啦！'</span>);</span><br><span class="line">      <span class="comment">// IOS 键盘弹起后操作</span></span><br><span class="line">    &#125;, <span class="literal">false</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment">// IOS 键盘收起：IOS 点击输入框以外区域或点击收起按钮，输入框都会失去焦点，键盘会收起，</span></span><br><span class="line">    $input.addEventListener(<span class="string">'blur'</span>, () =&gt; &#123;</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">'IOS 键盘收起啦！'</span>);</span><br><span class="line">      <span class="comment">// IOS 键盘收起后操作</span></span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// Andriod 键盘收起：Andriod 键盘弹起或收起页面高度会发生变化，以此为依据获知键盘收起</span></span><br><span class="line">  <span class="keyword">if</span> (judgeDeviceType.isAndroid) &#123;</span><br><span class="line">    <span class="keyword">var</span> originHeight = <span class="built_in">document</span>.documentElement.clientHeight || <span class="built_in">document</span>.body.clientHeight;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">window</span>.addEventListener(<span class="string">'resize'</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="keyword">var</span> resizeHeight = <span class="built_in">document</span>.documentElement.clientHeight || <span class="built_in">document</span>.body.clientHeight;</span><br><span class="line">      <span class="keyword">if</span> (originHeight &lt; resizeHeight) &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'Android 键盘收起啦！'</span>);</span><br><span class="line">        <span class="comment">// Android 键盘收起后操作</span></span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'Android 键盘弹起啦！'</span>);</span><br><span class="line">        <span class="comment">// Android 键盘弹起后操作</span></span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">      originHeight = resizeHeight;</span><br><span class="line">    &#125;, <span class="literal">false</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> $inputs = <span class="built_in">document</span>.querySelectorAll(<span class="string">'.input'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; $inputs.length; i++) &#123;</span><br><span class="line">  listenKeybord($inputs[i]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="弹起软键盘始终让输入框滚动到可视区"><a href="#弹起软键盘始终让输入框滚动到可视区" class="headerlink" title="弹起软键盘始终让输入框滚动到可视区"></a>弹起软键盘始终让输入框滚动到可视区</h4><p>有时我们会做一个输入表单，有很多输入项，输入框获取焦点，弹起软键盘。当输入框位于页面下部位置时，在 IOS 上，会将 webview 整体往上滚一段距离，使得该获取焦点的输入框自动处于可视区，而在 Android 则不会这样，它只会改变页面高度，而不会去滚动到当前焦点元素到可视区。<br>由于上面已经实现监听 IOS 和 Android 键盘弹起和收起，在这里，只需在 Android 键盘弹起后，将焦点元素滚动（scrollIntoView()）到可视区。查看效果，可以戳<a href="https://wuwhs.github.io/demo/keyboard-compatible/input.html" target="_blank" rel="noopener">这里</a>。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 获取到焦点元素滚动到可视区</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">activeElementScrollIntoView</span>(<span class="params">activeElement, delay</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> editable = activeElement.getAttribute(<span class="string">'contenteditable'</span>)</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 输入框、textarea或富文本获取焦点后没有将该元素滚动到可视区</span></span><br><span class="line">  <span class="keyword">if</span> (activeElement.tagName == <span class="string">'INPUT'</span> || activeElement.tagName == <span class="string">'TEXTAREA'</span> || editable === <span class="string">''</span> || editable) &#123;</span><br><span class="line">    setTimeout(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">      activeElement.scrollIntoView();</span><br><span class="line">    &#125;, delay)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// ...</span></span><br><span class="line"><span class="comment">// Android 键盘弹起后操作</span></span><br><span class="line">activeElementScrollIntoView($input, <span class="number">1000</span>);</span><br><span class="line"><span class="comment">// ...</span></span><br></pre></td></tr></table></figure>
+<h4 id="唤起纯数字软键盘"><a href="#唤起纯数字软键盘" class="headerlink" title="唤起纯数字软键盘"></a>唤起纯数字软键盘</h4><p>上面的表单输入框有要求输入电话号码，类似这样就要弹出一个数字软键盘了，既然说到了软键盘兼容，在这里就安插一下。比较好的解决方案如下：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>请输入手机号<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"tel"</span> <span class="attr">novalidate</span>=<span class="string">"novalidate"</span> <span class="attr">pattern</span>=<span class="string">"[0-9]*"</span> <span class="attr">class</span>=<span class="string">"input"</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>type=”tel”， 是 HTML5 的一个属性，表示输入框类型为电话号码，在 Android 和 IOS 上表现差不多，都会有数字键盘，但是也会有字母，略显多余。</li>
+<li>pattern=”[0-9]”， pattern 用于验证表单输入的内容，通常 HTML5 的 type 属性，比如 email、tel、number、data 类、url 等，已经自带了简单的数据格式验证功能了，加上 pattern 后，前端部分的验证更加简单高效了。IOS 中，只有 [0-9]* 才可以调起九宫格数字键盘，\d 无效，Android 4.4 以下（包括X5内核），两者都调起数字键盘。</li>
+<li>novalidate=”novalidate”，novalidate 属性规定当提交表单时不对其进行验证，由于 pattern 校验兼容性不好，可以不让其校验，只让其唤起纯数字键盘，校验工作由 js 去做。</li>
+</ul>
+<p><img src="/content-images/keyboard2.jpg" style="width:850px;"></p>
+<h2 id="兼容-IOS12-V6-7-4"><a href="#兼容-IOS12-V6-7-4" class="headerlink" title="兼容 IOS12 + V6.7.4+"></a>兼容 IOS12 + V6.7.4+</h2><p>如果你在用 IOS12 和 V6.7.4+版本的微信浏览器打开上面表单输入的 demo ，就会惊奇的发现键盘收起后，原本被滚动顶起的页面并没有回到底部位置，导致原来键盘弹起的位置“空”了。</p>
+<p><img src="/content-images/keyboard3.jpg" style="width:100%;"></p>
+<p>其实这是 Apple 在 IOS 的 bug，会出现在所有的 Xcode10 打包的 IOS12 的设备上。微信官方已给出解决方案，只需在软键盘收起后，将页面（webview）滚回到窗口最底部位置（clientHeight位置）。修复后的上面表单输入 demo 可以戳<a href="https://wuwhs.github.io/demo/keyboard-compatible/input-fix-ios12-wx6.7.4.html" target="_blank" rel="noopener">这里</a>。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="string">'IOS 键盘收起啦！'</span>);</span><br><span class="line"><span class="comment">// IOS 键盘收起后操作</span></span><br><span class="line"><span class="comment">// 微信浏览器版本6.7.4+IOS12会出现键盘收起后，视图被顶上去了没有下来</span></span><br><span class="line"><span class="keyword">var</span> wechatInfo = <span class="built_in">window</span>.navigator.userAgent.match(<span class="regexp">/MicroMessenger\/([\d\.]+)/i</span>);</span><br><span class="line"><span class="keyword">if</span> (!wechatInfo) <span class="keyword">return</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> wechatVersion = wechatInfo[<span class="number">1</span>];</span><br><span class="line"><span class="keyword">var</span> version = (navigator.appVersion).match(<span class="regexp">/OS (\d+)_(\d+)_?(\d+)?/</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (+wechatVersion.replace(<span class="regexp">/\./g</span>, <span class="string">''</span>) &gt;= <span class="number">674</span> &amp;&amp; +version[<span class="number">1</span>] &gt;= <span class="number">12</span>) &#123;</span><br><span class="line">  setTimeout(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">window</span>.scrollTo(<span class="number">0</span>, <span class="built_in">Math</span>.max(<span class="built_in">document</span>.body.clientHeight, <span class="built_in">document</span>.documentElement.clientHeight));</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="兼容第三方输入法"><a href="#兼容第三方输入法" class="headerlink" title="兼容第三方输入法"></a>兼容第三方输入法</h2><p>上面说了那么多，其实已经把 H5 聊天输入框的坑填了一大半了，接下来就先看下聊天输入框的基本HTML结构</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"chat__content"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span>&gt;</span>一些聊天内容1<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="comment">&lt;!-- 省略几千行聊天内容 --&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"input__content"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"input"</span> <span class="attr">contenteditable</span>=<span class="string">"true"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">button</span>&gt;</span>发送<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>样式<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 省略一些样式 */</span></span><br><span class="line"><span class="selector-class">.chat__content</span> &#123;</span><br><span class="line">  <span class="attribute">height</span>: <span class="built_in">calc</span>(100% - 40px);</span><br><span class="line">  <span class="attribute">margin-bottom</span>: <span class="number">40px</span>;</span><br><span class="line">  <span class="attribute">overflow-y</span>: auto;</span><br><span class="line">  <span class="attribute">overflow-x</span>: hidden;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.input__content</span> &#123;</span><br><span class="line">  <span class="attribute">display</span>: flex;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">40px</span>;</span><br><span class="line">  <span class="attribute">position</span>: absolute;</span><br><span class="line">  <span class="attribute">left</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">right</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">bottom</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">align-items</span>: center;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/* 省略一些样式 */</span></span><br></pre></td></tr></table></figure></p>
+<p>很简单，就是划分内容区和输入区，输入区是绝对定位，按照上面表单输入 demo 的做法，确实大部分 Android 浏览器是没问题的，但是测试在 IOS 上，UC 浏览器配合原生输入法和第三方输入法（比如搜狗输入法），输入框都会被完全挡住；QQ 浏览器或微信浏览器，配合第三方输入法，输入框会被遮住一半；百度浏览器配合第三方输入法输入框也会被完全遮住。查看效果可以用相应浏览器中访问<a href="https://wuwhs.github.io/demo/keyboard-compatible/chat.html" target="_blank" rel="noopener">这里</a>。</p>
+<p><img src="/content-images/keyboard4.png" style="width:100%;"></p>
+<p>在 UC 浏览器上，软键盘弹起后，浏览器上面的标题栏高度就有个高度变小延时动态效果，这样导致 webview 往下滚了一点，底部输入框滚到了非可视区。<br>而对于第三方输入法，猜测本身是由于输入法面板弹起后高度计算有误，导致 webview 初始滚动定位有误。其实这两点都是 webview 滚动不到位造成的。可以让软键盘弹起后，让焦点元素再次滚到可视区，强迫 webview 滚到位。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="string">'Android 键盘弹起啦！'</span>);</span><br><span class="line"><span class="comment">// Android 键盘弹起后操作</span></span><br><span class="line">activeElementScrollIntoView($input, <span class="number">1000</span>);</span><br></pre></td></tr></table></figure>
+<h2 id="兼容-Android-小米浏览器的-Hack-方案"><a href="#兼容-Android-小米浏览器的-Hack-方案" class="headerlink" title="兼容 Android 小米浏览器的 Hack 方案"></a>兼容 Android 小米浏览器的 Hack 方案</h2><p>在 Android 的小米浏览器上，应用上面的方案，发现聊天输入框还是被遮挡得严严实实，scrollIntoView() 仍然纹丝不动。所以猜测，其实是滚到底了，软键盘弹起，页面实现高度大于可视区高度，这样只能在软键盘弹起后，强行增加页面高度，使输入框可以显示出来。综合上面兼容第三方输入法，查看效果可以戳<a href="https://wuwhs.github.io/demo/keyboard-compatible/chat-fix-third-keyboard.html" target="_blank" rel="noopener">这里</a>。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Andriod 键盘收起：Andriod 键盘弹起或收起页面高度会发生变化，以此为依据获知键盘收起</span></span><br><span class="line"><span class="keyword">if</span> (judgeDeviceType.isAndroid) &#123;</span><br><span class="line">  <span class="keyword">var</span> originHeight = <span class="built_in">document</span>.documentElement.clientHeight || <span class="built_in">document</span>.body.clientHeight;</span><br><span class="line"></span><br><span class="line">  <span class="built_in">window</span>.addEventListener(<span class="string">'resize'</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> resizeHeight = <span class="built_in">document</span>.documentElement.clientHeight || <span class="built_in">document</span>.body.clientHeight;</span><br><span class="line">    <span class="keyword">if</span> (originHeight &lt; resizeHeight) &#123;</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">'Android 键盘收起啦！'</span>);</span><br><span class="line">      <span class="comment">// Android 键盘收起后操作</span></span><br><span class="line">      <span class="comment">// 修复小米浏览器下，输入框依旧被输入法遮挡问题</span></span><br><span class="line">      <span class="keyword">if</span> (judgeDeviceType.isMiuiBrowser) &#123;</span><br><span class="line">        <span class="built_in">document</span>.body.style.marginBottom = <span class="string">'0px'</span>;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">'Android 键盘弹起啦！'</span>);</span><br><span class="line">      <span class="comment">// Android 键盘弹起后操作</span></span><br><span class="line">      <span class="comment">// 修复小米浏览器下，输入框依旧被输入法遮挡问题</span></span><br><span class="line">      <span class="keyword">if</span> (judgeDeviceType.isMiuiBrowser) &#123;</span><br><span class="line">        <span class="built_in">document</span>.body.style.marginBottom = <span class="string">'40px'</span>;</span><br><span class="line">      &#125;</span><br><span class="line">      activeElementScrollIntoView($input, <span class="number">1000</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    originHeight = resizeHeight;</span><br><span class="line">  &#125;, <span class="literal">false</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>H5 端前路漫漫，坑很多，需要不断尝试。了解软键盘弹起页面在 IOS 和 Android 上的表现差异是前提，其次是将焦点元素滚动到可视区，同时要考虑到第三方输入法和某些浏览器上的差别。总结肯定不全面，欢迎大家指正哈，完~</p>
+	
+	</div>
+	
+	<div id="current-post-cover" data-scr="/img/categories-bgi/js.jpg"></div>
+
+	<!-- relate post, comment...-->
+	<div class="investment-container">
+		<div class="investment-header">
+			<div class="investment-title-1">
+				<div class="on">相关文章</div>
+				<div>评论</div>
+				<div>分享</div>
+			</div>
+			<div class="investment-title-2">	            
+				
+	<span>
+		<a href="javascript: window.scrollTo(0, 0);">返回顶部</a>
+		
+		
+			<a href="/2019/06/13/create-react-app常用配置/" title="create-react-app常用配置" rel="next">
+				下一篇&raquo;
+			</a>
+			
+	</span>
+
+
+      		
+			</div>	
+		</div>
+		
+		<div class="investment-content">
+			<div class="investment-content-list">
+				
+
+<div class="relate-post">
+	
+		<ul>
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2019/06/03/浏览器端使用es6 import 语法/" title="浏览器端使用es6 import 语法">
+								浏览器端使用es6 import 语法			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								六月 3日, 2019				
+							</p>
+							<p class="relate-post-content">
+								通常我们会在开发H5页面时，会引用一些外部的js，但是这些 js 很有可能是通过 es6 语法书写并通过 export 或 export default 导出的，可是我们在页面中根本无法通过 script 标签将这样的js导入并使用（...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2019/06/03/浏览器端使用es6 import 语法/" title="浏览器端使用es6 import 语法">				
+								
+								<img class="lazy" src="/img/placeholder.jpg" data-src="/img/categories-bgi/js.jpg" alt="浏览器端使用es6 import 语法">
+							</a>
+						</div>
+					</li>											
+			
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2018/12/10/js数组遍历方法总结/" title="js数组遍历方法总结">
+								js数组遍历方法总结			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								十二月 10日, 2018				
+							</p>
+							<p class="relate-post-content">
+								1.for循环使用临时变量，将长度缓存起来，避免重复获取数组长度，当数组较大时优化效果才会比较明显。123for(j = 0,len=arr.length; j &lt; len; j++) &#123;    // 代码片段&#12...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2018/12/10/js数组遍历方法总结/" title="js数组遍历方法总结">				
+								
+								<img class="lazy" src="/img/placeholder.jpg" data-src="/img/categories-bgi/js.jpg" alt="js数组遍历方法总结">
+							</a>
+						</div>
+					</li>											
+			
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2018/07/19/async await处理异步/" title="async/await处理异步">
+								async/await处理异步			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								七月 19日, 2018				
+							</p>
+							<p class="relate-post-content">
+								async作为一个关键字放到函数前面，用于表示函数是一个异步函数，因为async就是异步的意思， 异步函数也就意味着该函数的执行不会阻塞后面代码的执行。 写一个async 函数：123async function timeout() ...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2018/07/19/async await处理异步/" title="async/await处理异步">				
+								
+								<img class="lazy" src="/img/placeholder.jpg" data-src="/img/categories-bgi/js.jpg" alt="async/await处理异步">
+							</a>
+						</div>
+					</li>											
+			
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2018/03/30/js获取浏览器中相关容器的高度/" title="js获取浏览器中相关容器的高度">
+								js获取浏览器中相关容器的高度			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								三月 30日, 2018				
+							</p>
+							<p class="relate-post-content">
+								网页可见区域宽：1document.body.clientWidth
+网页可见区域高：1document.body.clientHeight
+网页可见区域宽：1document.body.offsetWidth // (包括边线的宽)...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2018/03/30/js获取浏览器中相关容器的高度/" title="js获取浏览器中相关容器的高度">				
+								
+								<img class="lazy" src="/img/placeholder.jpg" data-src="/img/categories-bgi/js.jpg" alt="js获取浏览器中相关容器的高度">
+							</a>
+						</div>
+					</li>											
+			
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2018/01/08/JS中对URL进行转码与解码/" title="JS中对URL进行转码与解码">
+								JS中对URL进行转码与解码			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								一月 8日, 2018				
+							</p>
+							<p class="relate-post-content">
+								1. escape 和 unescapeescape()不能直接用于URL编码，它的真正作用是返回一个字符的Unicode编码值。
+采用unicode字符集对指定的字符串除0-255以外进行编码。所有的空格符、标点符号、特殊字符以及更...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2018/01/08/JS中对URL进行转码与解码/" title="JS中对URL进行转码与解码">				
+								
+								<img class="lazy" src="/img/placeholder.jpg" data-src="/img/categories-bgi/js.jpg" alt="JS中对URL进行转码与解码">
+							</a>
+						</div>
+					</li>											
+			
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2019/06/13/create-react-app常用配置/" title="create-react-app常用配置">
+								create-react-app常用配置			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								六月 13日, 2019				
+							</p>
+							<p class="relate-post-content">
+								搭建 react 项目运用脚手架是再方便不过了，本人最常用的就是 create-react-app + antd ，但是至于模板中的配置与开发中还是有些不符，所以需要我们自行配置。基本使用1. 下载并安装 yarn，并查看版本1234...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2019/06/13/create-react-app常用配置/" title="create-react-app常用配置">				
+								
+								<img class="lazy" src="/img/placeholder.jpg" data-src="/img/categories-bgi/react.jpg" alt="create-react-app常用配置">
+							</a>
+						</div>
+					</li>											
+			
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2019/05/20/vue-pdf的使用方法及解决在线打印预览乱码/" title="vue-pdf的使用方法及解决在线打印预览乱码">
+								vue-pdf的使用方法及解决在线打印预览乱码			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								五月 20日, 2019				
+							</p>
+							<p class="relate-post-content">
+								最近在用vue做项目的时候，页面中需要展示后端返回的PDF文件，于是便用到了vue-pdf，其使用方法为 ：1npm install --save vue-pdf
+官网
+不多说了，直接上代码：
+12345678910111213141...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2019/05/20/vue-pdf的使用方法及解决在线打印预览乱码/" title="vue-pdf的使用方法及解决在线打印预览乱码">				
+								
+								<img class="lazy" src="/img/placeholder.jpg" data-src="/img/categories-bgi/vue.jpg" alt="vue-pdf的使用方法及解决在线打印预览乱码">
+							</a>
+						</div>
+					</li>											
+			
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2019/05/06/nodejs脚手架express-generator/" title="nodejs脚手架express-generator">
+								nodejs脚手架express-generator			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								五月 6日, 2019				
+							</p>
+							<p class="relate-post-content">
+								1.安装生成器1npm install express-generator -g
+2. 创建名称为APP的应用：1express my-project
+3.安装依赖包123cd my-projectnpm install
+4、启动应用...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2019/05/06/nodejs脚手架express-generator/" title="nodejs脚手架express-generator">				
+								
+								<img class="lazy" src="/img/placeholder.jpg" data-src="/img/categories-bgi/node.jpg" alt="nodejs脚手架express-generator">
+							</a>
+						</div>
+					</li>											
+			
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2019/04/20/ts中类的继承/" title="ts中类的继承">
+								ts中类的继承			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								四月 20日, 2019				
+							</p>
+							<p class="relate-post-content">
+								定义类1234567891011class Person &#123;    name: string;   //属性    constructor(_name: string) &#123;        this.name = _...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2019/04/20/ts中类的继承/" title="ts中类的继承">				
+								
+								<img class="lazy" src="/img/placeholder.jpg" data-src="/img/categories-bgi/ts.jpg" alt="ts中类的继承">
+							</a>
+						</div>
+					</li>											
+			
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2019/04/18/vue-cli3+typescript+router/" title="vue-cli3+typescript+router">
+								vue-cli3+typescript+router			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								四月 18日, 2019				
+							</p>
+							<p class="relate-post-content">
+								vue基于类的写法，和基于对象的写法并不一致。使用vue-cli3创建的项目，src目录下的文件结构并没有多大区别，store、router、app、view、components、aeests该有的还是有的。但是，多了一个东西：vu...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2019/04/18/vue-cli3+typescript+router/" title="vue-cli3+typescript+router">				
+								
+								<img class="lazy" src="/img/placeholder.jpg" data-src="/img/categories-bgi/vue.jpg" alt="vue-cli3+typescript+router">
+							</a>
+						</div>
+					</li>											
+			
+			
+		</ul>
+	
+</div>	
+			</div>
+			<div class="investment-content-list">
+				<div class="layout-comment">
+
+	
+
+		
+
+			<!-- I don't know !!!-->
+			<div>Please check the comment setting in config.yml of hexo-theme-Annie!</div>
+			
+		
+		
+	
+
+</div>
+			</div>
+			<div class="investment-content-list">
+				<div class="layout-share">
+	
+	
+
+		
+			
+			<!-- socialShare share -->
+			<div class="social-share"></div>
+
+<!--  css & js -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css">
+<script async src="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script>
+			
+		
+		
+	
+</div>
+
+
+			</div>
+		</div>	
+	</div>
+	</div>
+</div>
+
+
+
+	<!-- leancloud -->
+	<!--
+	时间：2018-11-27
+	描述：
+		文章访问量：visitors
+		文章喜欢量：likes	
+		文章排行榜：topNPost
+		其他得说明：
+			01-Cookie相关的函数 
+				https://blog.csdn.net/somehow1002/article/details/78511541（Author：somehow1002）
+			02-visitors相关的函数 
+				https://blog.csdn.net/u013553529/article/details/63357382（Author：爱博客大伯）
+				https://notes.doublemine.me/2015-10-21-为NexT主题添加文章阅读量统计功能.html（Author：夏末）
+			03-topNPost相关的函数
+				https://hoxis.github.io/hexo-next-read-rank.html（Author：hoxis）
+			04-likes相关的函数，
+				参考了01 & 02进行简单的设计与实现
+-->
+
+
+	
+
+
+<!-- show math formula -->
+
+
+
+	 
+	<script src="/plugin/clipboard/clipboard.js"></script>
+	<script>
+		// Copy code !
+	    function codePreprocessing() {
+	        $("#article-content .highlight").each(function() {
+
+	            $(this).wrap('<div id="post-code"></div>');
+
+	        })
+
+	        $("#article-content #post-code").each(function() {
+
+	            $(this).prepend('<nav class="copy-nav"><span><i class="code-language"></i></span></nav>');
+
+	        })
+
+	        $("#article-content .copy-nav").each(function() {
+	            var temp = $(this).next().attr('class'),
+	                language = ((temp.length > 9) && (temp != null)) ? temp.substr(10) : "none"; //why 9? Need to check language?
+
+	            $(this).find('.code-language').text(language);
+
+	            $(this).append('<span class="copy-btn"><i class="fa fa-copy" aria-hidden="true"></i></span>');
+
+	        });
+	    }
+
+		function codeCopy() {
+		    $('#article-content #post-code').each(function(i) {
+		        var codeCopyId = 'codeCopy-' + i;
+
+		        var codeNode = $(this).find('.code'),
+		            copyButton = $(this).find('.copy-btn');
+
+		        codeNode.attr('id', codeCopyId);
+		        copyButton.attr('data-clipboard-target-id', codeCopyId);
+		    })
+
+		    
+			var clipboard = new ClipboardJS('.copy-btn', {
+					target: function(trigger) {
+						return document.getElementById(trigger.getAttribute('data-clipboard-target-id'));
+					}
+		      	});
+
+			//pure js
+			function showTooltip(elem, msg) {		   
+				elem.setAttribute('aria-label', msg);
+				elem.setAttribute('class', 'copy-btn copy-status');
+				setTimeout(function() {
+					elem.setAttribute('class', 'copy-btn');
+				}, 2000);
+			}
+
+			clipboard.on('success', function(e) {
+			    e.clearSelection();
+			    console.info('Action:', e.action);		   
+			    console.info('Trigger:', e.trigger);
+			    showTooltip(e.trigger, 'Copied!');
+			    
+			});
+			clipboard.on('error', function(e) {
+			    console.error('Action:', e.action);
+			    console.error('Trigger:', e.trigger);
+			});
+		
+
+		}
+
+		if ($('.layout-post').length) {
+		    codePreprocessing();
+		    codeCopy();
+		} 
+	</script>
+
+
+
+
+
+<link rel="stylesheet" href="/plugin/fancybox/jquery.fancybox.css">
+<script src="/plugin/fancybox/jquery.fancybox.js"></script>
+
+<script type="text/javascript">
+	var titleID = $('.article-title a'),
+		imageID = $('.article-content img'),
+		videoID = $('.article-content video');
+
+	var postTitle = titleID.text() ? titleID.text() : "No post title!";
+
+	imageID.each(function() {
+		var imgPath = $(this).attr('src'),
+			imgTitle = $(this).attr('alt') ? $(this).attr('alt') : "No image description!";
+
+		//给每个匹配的<img>元素打包, 即添加父元素<a>
+		$(this).wrap('<a data-fancybox="gallery" data-caption=" 《 ' + postTitle + ' 》 ' + imgTitle + ' "  href=" ' + imgPath + ' "> </a>');
+	});
+
+	videoID.each(function() {
+		var videoPath = $(this).attr('src');
+
+		//给每个匹配的<img>元素打包, 即添加父元素<a>
+		$(this).wrap('<a data-fancybox href=" ' + videoPath + ' "> </a>');
+	});
+	//TODO：支持html5 video
+
+	if($('#layout-post').length) {
+		$('[data-fancybox="gallery"]').fancybox({
+			loop: true,
+			buttons: [
+				"zoom",
+				"share",
+				"slideShow",
+				"fullScreen",
+				//"download",
+				"thumbs",
+				"close"
+			],
+			protect: false
+		});
+	}
+</script>
+		</main>
+
+		<!--footer-->
+		<footer>
+	<div class="social">
+		<ul>
+	
+		<li>
+			<a href="http://github.com/" target="_blank">
+				<i class="fa fa-github"></i>
+			</a>
+		</li>
+	
+		<li>
+			<a href="http://github.com/" target="_blank">
+				<i class="fa fa-weibo"></i>
+			</a>
+		</li>
+	
+		<li>
+			<a href="http://github.com/" target="_blank">
+				<i class="fa fa-pinterest"></i>
+			</a>
+		</li>
+	
+		<li>
+			<a href="http://github.com/" target="_blank">
+				<i class="fa fa-instagram"></i>
+			</a>
+		</li>
+	
+		<li>
+			<a href="http://github.com/" target="_blank">
+				<i class="fa fa-twitter"></i>
+			</a>
+		</li>
+	
+		<li>
+			<a href="/atom.xml" target="_blank">
+				<i class="fa fa-rss"></i>
+			</a>
+		</li>
+			
+</ul>
+
+	</div>
+		
+	<div class="copyright">
+		<p>
+			 
+				&copy;2017 - 2019, content by Mr. Meng. All Rights Reserved.
+			
+			
+			
+
+	<!-- busuanzi -->
+	<!-- busuanzi -->
+
+		
+	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+	
+
+		<span id="busuanzi_container_page_pv">
+	  		本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+		</span>
+
+	
+
+
+
+
+		</p>
+		<p>
+			<a href="http://hexo.io/" title="Hexo" target="_blank" rel="noopener">Hexo</a> Theme <a href="https://github.com/Sariay/hexo-theme-Annie" title="Annie" target="_blank" rel="noopener">Annie</a> by Sariay.
+			<a href="javascript:zh_tran('s');" class="zh_click" id="zh_click_s">简体</a> 
+			<a href="javascript:zh_tran('t');" class="zh_click" id="zh_click_t">繁體</a>				
+		</p>
+	</div>		
+</footer>
+		
+	<!-- set '1' to show motto in all pages! -->
+
+	<script src="/plugin/motto/motto.js"></script>
+	
+	<script type="text/javascript">
+		$(".motto").html( getMingYanContent() );
+	</script>	
+
+
+
+
+
+<!-- love effect -->
+
+	<script src="/plugin/love/love.js"></script>
+
+
+<!-- back to top -->
+
+	
+	<div id="totop">
+  		<a href="javascript:;" name="TOTOP" class="fa fa-arrow-up"></a>
+	</div>
+
+
+
+
+<!-- site analysis -->
+
+
+	<!-- site-analysis -->
+	
+	
+	
+	
+	
+ 
+
+<script src="/plugin/vibrant/vibrant.js"></script>
+<script src="/plugin/chinese/chinese.js"></script>
+<script src="/plugin/imgLazyLoader/yall.min.js"></script>
+<script src="/plugin/imgResize/jquery.resizeimagetoparent.min.js"></script>
+<script src="/plugin/nicescroll/jquery.nicescroll.js"></script>
+<script src="/js/resizediv.js"></script>
+<script src="/js/main.js"></script>
+	</body>	
+</html>
